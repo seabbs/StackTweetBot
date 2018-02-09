@@ -23,4 +23,5 @@ Imports:
     lubridate,
     stringr,
     glue
-    
+Remotes:
+    dgrtwo/stackr 
