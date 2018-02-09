@@ -2,17 +2,20 @@
 #'
 #' @description Set up a StackOverflow twitter bot for a given list of tags, and excluded tags.
 #' Job scheduling can be set up using either \code{cronR} or \code{taskscheduleR} depending
-#' on the platform.
+#' on your platform.
 #' @param name Character string containing the bots name, defaults to "stack_tweet_bot".
 #' @param dir Character string containing the directory into which to save the bot, defaults
 #' to the temporary directory. Is not saved if \code{save = FALSE}.
 #' @param run Logical, defaults to \code{TRUE}. Should the bot be run once saved?
 #' @param schedule Logical, defaults to \code{TRUE}. Should the bot be schduled to run
-#' using CRON?
+#' using cronR/taskscheduleR?
 #' @param save Logical, defaults to \code{TRUE}. Should the bot be saved.
-#' @param ... Additional arguements to pass to \code{\link[cronR]{cron_add}} when
-#' \code{schedule = TRUE}.The suggested frequency for the bot run is hourly,
-#'  set this by passing \code{frequency = "hourly"}.
+#' @param ... Additional arguements to pass to \code{\link[cronR]{cron_add}} or \code{\link[taskscheduleR]{taskscheduler_create}}
+#' when \code{schedule = TRUE}.The suggested frequency for the bot run is hourly,
+#'  set this by passing \code{frequency = "hourly"} (\code{cronR}) or \code{schedule = "HOURLY"}  (\code{taskscheduleR}).
+#'
+#' @inheritParams post_stack_tweets
+#' @inheritParams get_stack_questions
 #'
 #' @return A character string containing the twitter bot code.
 #' @export
@@ -21,15 +24,19 @@
 #' @importFrom glue glue
 #' @examples
 #'
-#' set_up_stack_tweet_bot(run = FALSE, schedule = FALSE, save = FALSE)
+#' set_up_stack_tweet_bot(extracted_tags = "ggplot2",
+#'                        run = TRUE, schedule = FALSE,
+#'                        save = TRUE, post = FALSE)
 #'
 set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
                                    extracted_tags = NULL,
                                    excluded_tags = NULL,
-                                   time_window = NULL,
-                                   hashtags = NULL,
-                                   Rprofile_path =".Rprofile",
-                                   token_path = "twitter_token.rds",
+                                   time_window = 60,
+                                   add_process_fn = NULL,
+                                   Rprofile_path ="~/.Rprofile",
+                                   hashtags = "rstats",
+                                   twitter_token_path = "~/twitter_token.rds",
+                                   post = TRUE,
                                    dir = NULL,
                                    run = TRUE,
                                    schedule = TRUE,
@@ -37,35 +44,67 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
                                    verbose = TRUE,
                                    ...) {
 
- if (is.null(dir) && save){
-   message("No directory has been supplied for saving the twitter bot,
+ if (!is.null(add_process_fn)) {
+   stop("Adding a processing function has not been implemented using set_up_stack_tweet_bot.
+        If this is a requirement manual set up is required.")
+ }
+ if (is.null(dir)){
+
+   if (verbose && save) {
+     message("No directory has been supplied for saving the twitter bot,
            defaulting to saving to the temporary directory")
+   }
 
    dir <- tempdir()
  }
 
+  ## Format arguements prior to glueing
+  prep_glue_char <- function(vec) {
+    if (!is.null(vec) && length(vec) > 1) {
+      paste0("c('", paste(vec, collapse = "', '"), "')")
+    }else if (is.null(vec)){
+      vec <- "NULL"
+    }else if (is.character(vec)){
+      vec <- paste0("'", vec, "'")
+    }else{
+      vec <- vec
+    }
+  }
+
+  extracted_tags <- prep_glue_char(extracted_tags)
+  excluded_tags <- prep_glue_char(excluded_tags)
+  hashtags <- prep_glue_char(hashtags)
+  time_window <- prep_glue_char(time_window)
+  Rprofile_path <- prep_glue_char(Rprofile_path)
+  add_process_fn <- prep_glue_char(add_process_fn)
+  twitter_token_path <-  prep_glue_char(twitter_token_path)
+
   bot <- glue("
               library(StackTweetBot);
-              get_stack_questions(extracted_tags = {extracted_tags},
-                                  excluded_tags = {excluded_tags},
-                                  time_window = {time_window},
-                                  Rprofile_path = {Rprofile_path});
-              post_stack_tweets(hashtags = {hashtags},
-                                Rprofile_path = {Rprofile_path},
-                                token_path = {token_path});
+              questions <- get_stack_questions(extracted_tags = {extracted_tags},
+                                               excluded_tags = {excluded_tags},
+                                               time_window = {time_window},
+                                               Rprofile_path = {Rprofile_path},
+                                               add_process_fn = {add_process_fn});
+
+              posts <- post_stack_tweets(questions, hashtags = {hashtags},
+                                         twitter_token_path = {twitter_token_path},
+                                         post = {post});
               ")
 
   bot_path <- file.path(dir, paste0(name, ".R"))
 
   if (save) {
     if (verbose) {
-      message("Saving to following code to: ", bot_path)
+      message("Saving the following code to: ", bot_path)
       message("Code: \n\n", bot)
     }
 
     write_file(bot, path = bot_path)
   }else{
-    message("Not saving bot. This means the bot cannot be run or scheduled.")
+    if (verbose) {
+      message("Not saving bot. This means the bot cannot be run or scheduled.")
+    }
 
     if (run) {
       stop("Permission to save the bot is required in order to run it")
@@ -92,7 +131,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
       if (!library(taskscheduleR,
                    logical.return = T,
                    quietly = TRUE)) {
-        stop("Please download it with, devtools::install_github('bnosac/taskscheduleR')")
+        stop("Please download it with, install.packages('taskscheduleR')")
       }
 
       if (verbose) {
@@ -107,7 +146,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
       if (!library(cronR,
                    logical.return = T,
                    quietly = TRUE)) {
-        stop("Please download it with, devtools::install_github('bnosac/cronR')")
+        stop("Please download it with, install.packages('cronR')")
       }
 
       if (verbose) {
@@ -118,7 +157,6 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
       cronR::cron_add(bot_path, ...)
     }
   }
-
 
   return(bot)
 }

@@ -1,0 +1,37 @@
+title: StackOverflow Twitter Bots
+url: https://samabbott.co.uk/StackTweetBot/
+template:
+  params:
+    bootswatch: flatly
+
+navbar:
+  type: inverse
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Getting Started"
+      href: articles/intro.html
+    - text: "Example Bot"
+      href: https://twitter.com/h2o_tweets
+
+  right:
+    - icon: fa-file-code-o
+      text: "Functions"
+      href: reference/index.html
+    - text: News
+      href: news/index.html
+    - icon: fa-github fa-lg
+      text: "Github"
+      href: https://github.com/seabbs/StackTweetBot
+
+reference:
+    - title: Build Twitter Bot
+      desc:  Functions used to build a StackOverflow twitter bot
+      contents:
+      - get_stack_questions
+      - post_stack_tweets
+      - set_up_stack_tweet_bot
+    - title: Set UP API Access
+      desc: Functions used to walk through setting up API access.
+      contents:
+      - starts_with("add_")

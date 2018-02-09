@@ -5,13 +5,39 @@
 \title{Set Up a StackOverflow Twitter Bot}
 \usage{
 set_up_stack_tweet_bot(name = "stack_tweet_bot", extracted_tags = NULL,
-  excluded_tags = NULL, time_window = NULL, hashtags = NULL,
-  Rprofile_path = ".Rprofile", token_path = "twitter_token.rds",
-  dir = NULL, run = TRUE, schedule = TRUE, save = TRUE,
-  verbose = TRUE, ...)
+  excluded_tags = NULL, time_window = 60, add_process_fn = NULL,
+  Rprofile_path = "~/.Rprofile", hashtags = "rstats",
+  twitter_token_path = "~/twitter_token.rds", post = TRUE, dir = NULL,
+  run = TRUE, schedule = TRUE, save = TRUE, verbose = TRUE, ...)
 }
 \arguments{
 \item{name}{Character string containing the bots name, defaults to "stack_tweet_bot".}
+
+\item{extracted_tags}{A character vector of tags to extract questions for.}
+
+\item{excluded_tags}{A character vector of tags to exclude questions from the
+output.}
+
+\item{time_window}{Numeric, the timewindow to extract questions for (in minutes.
+Defaults to 60 minutes. Note that a maximum of 100 questions are extracted by
+the StackOverflow api, if you expect your tags to have a high volume of questions
+reduce this. If using this function as part of a sheduled bot makes sure this time
+frame corresponds the frequency with which your bot is running.}
+
+\item{add_process_fn}{A function. If additional munging or data extraction is required add
+to a custom function and pass here. This function must except a dataframe as its first arguement
+and return a dataframe. See the examples for details.}
+
+\item{Rprofile_path}{A character string containing the path to your .Rprofile. Defaults
+to your home directory.}
+
+\item{hashtags}{A character vector of hashtags to attach to the tweet.}
+
+\item{twitter_token_path}{A character string indicting the path your twitter token.
+See \code{\link[StackTweetBot]{add_twitter_api}} for details.}
+
+\item{post}{Logical, defaults to \code{TRUE}. Should the formatted tweets be published on
+twitter, if \code{FALSE} then the tweets are instead returned as a list.}
 
 \item{dir}{Character string containing the directory into which to save the bot, defaults
 to the temporary directory. Is not saved if \code{save = FALSE}.}
@@ -19,13 +45,13 @@ to the temporary directory. Is not saved if \code{save = FALSE}.}
 \item{run}{Logical, defaults to \code{TRUE}. Should the bot be run once saved?}
 
 \item{schedule}{Logical, defaults to \code{TRUE}. Should the bot be schduled to run
-using CRON?}
+using cronR/taskscheduleR?}
 
 \item{save}{Logical, defaults to \code{TRUE}. Should the bot be saved.}
 
-\item{...}{Additional arguements to pass to \code{\link[cronR]{cron_add}} when
-\code{schedule = TRUE}.The suggested frequency for the bot run is hourly,
-set this by passing \code{frequency = "hourly"}.}
+\item{...}{Additional arguements to pass to \code{\link[cronR]{cron_add}} or \code{\link[taskscheduleR]{taskscheduler_create}}
+when \code{schedule = TRUE}.The suggested frequency for the bot run is hourly,
+set this by passing \code{frequency = "hourly"} (\code{cronR}) or \code{schedule = "HOURLY"}  (\code{taskscheduleR}).}
 }
 \value{
 A character string containing the twitter bot code.
@@ -33,11 +59,13 @@ A character string containing the twitter bot code.
 \description{
 Set up a StackOverflow twitter bot for a given list of tags, and excluded tags.
 Job scheduling can be set up using either \code{cronR} or \code{taskscheduleR} depending
-on the platform.
+on your platform.
 }
 \examples{
 
-set_up_stack_tweet_bot(run = FALSE, schedule = FALSE, save = FALSE)
+set_up_stack_tweet_bot(extracted_tags = "ggplot2",
+                       run = TRUE, schedule = FALSE,
+                       save = TRUE, post = FALSE)
 
 }
 \seealso{
