@@ -12,5 +12,9 @@ RoxygenNote: 6.0.1
 Suggests:
     usethis,
     devtools
-Imports: 
-    magrittr
+Imports:
+    magrittr,
+    stackr,
+    rtweet,
+    dplyr,
+    purrr
