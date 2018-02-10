@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • StackOverflow Twitter Bots</title>
+<title>Add a Twitter API Key — add_twitter_api • StackOverflow Twitter Bots</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -37,7 +37,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -86,79 +86,54 @@
       </header>
 
       <div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;0.0.0.9000</small>
-      </h1>
+    <h1>Add a Twitter API Key</h1>
     </div>
 
-    <div class="contents">
-      <table class="ref-index">
+    
+    <p>Checks if a Twitter token is present at the supplied link and if not
+gives instructions on how to create one.</p>
+    
 
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
+    <pre class="usage"><span class='fu'>add_twitter_api</span>()</pre>
+        
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-build-twitter-bot" class="hasAnchor"><a href="#section-build-twitter-bot" class="anchor"></a>Build Twitter Bot</h2>
-            <p class="section-desc"><p>Functions used to build a StackOverflow twitter bot</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="get_stack_questions.html">get_stack_questions</a></code> </p>
-          </td>
-          <td><p>Get StackOverflow Questions For A List of Tags</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="post_stack_tweets.html">post_stack_tweets</a></code> </p>
-          </td>
-          <td><p>Post A Tweet for Each Question</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="set_up_stack_tweet_bot.html">set_up_stack_tweet_bot</a></code> </p>
-          </td>
-          <td><p>Set Up a StackOverflow Twitter Bot</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-set-up-api-access" class="hasAnchor"><a href="#section-set-up-api-access" class="anchor"></a>Set UP API Access</h2>
-            <p class="section-desc"><p>Functions used to walk through setting up API access.</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="add_stack_api.html">add_stack_api</a></code> </p>
-          </td>
-          <td><p>Add a StackOverflow API Key</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="add_twitter_api.html">add_twitter_api</a></code> </p>
-          </td>
-          <td><p>Add a Twitter API Key</p></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
+    <p>Prints instructions to the command line.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='fu'>add_twitter_api</span>()</div><div class='output co'>#&gt; <span class='message'>A Twitter token is required to add posts to your twitter account. </span>
+#&gt; <span class='message'>The first step is to create a twitter app, enter the following code for instructions. </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>library(rtweet); vignette("auth") </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>Follow the instructions to create a Twitter app. </span>
+#&gt; <span class='message'>Copy the Consumer key and secret and create a token with the following code: </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>twitter_token &lt;- create_token(app = your_appname_here,</span>
+#&gt; <span class='message'>                                    consumer_key = key_here,</span>
+#&gt; <span class='message'>                                    consumer_secret = secret_here) </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>Now save this token to your home directory with the following code: </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>saveRDS(twitter_token, file = "~/twitter_token.rds"") </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>Now save the token as an enviroment variable (replacing *** the location of your token): </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>Sys.setenv(TWITTER_PAT = "~/twitter_token.rds")</span></div></pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-build-twitter-bot">Build Twitter Bot</a></li>
-      <li><a href="#section-set-up-api-access">Set UP API Access</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

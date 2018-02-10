@@ -55,9 +55,6 @@
   <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../articles/intro.html">Getting Started</a>
-</li>
-<li>
   <a href="https://twitter.com/h2o_tweets">Example Bot</a>
 </li>
       </ul>
@@ -102,9 +99,8 @@ on your platform.</p>
 
     <pre class="usage"><span class='fu'>set_up_stack_tweet_bot</span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"stack_tweet_bot"</span>, <span class='kw'>extracted_tags</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>excluded_tags</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>60</span>, <span class='kw'>add_process_fn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>Rprofile_path</span> <span class='kw'>=</span> <span class='st'>"~/.Rprofile"</span>, <span class='kw'>hashtags</span> <span class='kw'>=</span> <span class='st'>"rstats"</span>,
-  <span class='kw'>twitter_token_path</span> <span class='kw'>=</span> <span class='st'>"~/twitter_token.rds"</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>run</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>schedule</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>hashtags</span> <span class='kw'>=</span> <span class='st'>"rstats"</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>run</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>schedule</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -137,18 +133,9 @@ to a custom function and pass here. This function must except a dataframe as its
 and return a dataframe. See the examples for details.</p></td>
     </tr>
     <tr>
-      <th>Rprofile_path</th>
-      <td><p>A character string containing the path to your .Rprofile. Defaults
-to your home directory.</p></td>
-    </tr>
-    <tr>
       <th>hashtags</th>
-      <td><p>A character vector of hashtags to attach to the tweet.</p></td>
-    </tr>
-    <tr>
-      <th>twitter_token_path</th>
-      <td><p>A character string indicting the path your twitter token.
-See <code>add_twitter_api</code> for details.</p></td>
+      <td><p>A character vector of hashtags to attach to the tweet.
+See <code><a href='add_twitter_api.html'>add_twitter_api</a></code> for details.</p></td>
     </tr>
     <tr>
       <th>post</th>
@@ -188,36 +175,35 @@ set this by passing <code>frequency = "hourly"</code> (<code>cronR</code>) or <c
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p><code><a href='get_stack_questions.html'>get_stack_questions</a></code> <code><a href='post_stack_tweets.html'>post_stack_tweets</a></code>
-<code>add_twitter_api</code> <code>add_stack_exchange_api</code></p>
+<code><a href='add_twitter_api.html'>add_twitter_api</a></code> <code>add_stack_exchange_api</code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
+<span class='co'>## Build and run twitter bot</span>
 <span class='fu'>set_up_stack_tweet_bot</span>(<span class='kw'>extracted_tags</span> <span class='kw'>=</span> <span class='st'>"ggplot2"</span>,
                        <span class='kw'>run</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>schedule</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
                        <span class='kw'>save</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>No directory has been supplied for saving the twitter bot,</span>
-#&gt; <span class='message'>           defaulting to saving to the temporary directory</span></div><div class='output co'>#&gt; <span class='message'>Saving the following code to: /tmp/RtmppSe2C2/stack_tweet_bot.R</span></div><div class='output co'>#&gt; <span class='message'>Code: </span>
+#&gt; <span class='message'>           defaulting to saving to the temporary directory</span></div><div class='output co'>#&gt; <span class='message'>Saving the following code to: /tmp/RtmpUUso7Q/stack_tweet_bot.R</span></div><div class='output co'>#&gt; <span class='message'>Code: </span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>library(StackTweetBot);</span>
 #&gt; <span class='message'>questions &lt;- get_stack_questions(extracted_tags = 'ggplot2',</span>
 #&gt; <span class='message'>                                 excluded_tags = NULL,</span>
 #&gt; <span class='message'>                                 time_window = 60,</span>
-#&gt; <span class='message'>                                 Rprofile_path = '~/.Rprofile',</span>
 #&gt; <span class='message'>                                 add_process_fn = NULL);</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>posts &lt;- post_stack_tweets(questions, hashtags = 'rstats',</span>
-#&gt; <span class='message'>                           twitter_token_path = '~/twitter_token.rds',</span>
 #&gt; <span class='message'>                           post = FALSE);</span></div><div class='output co'>#&gt; <span class='message'>Running bot..</span></div><div class='output co'>#&gt; library(StackTweetBot);
 #&gt; questions &lt;- get_stack_questions(extracted_tags = 'ggplot2',
 #&gt;                                  excluded_tags = NULL,
 #&gt;                                  time_window = 60,
-#&gt;                                  Rprofile_path = '~/.Rprofile',
 #&gt;                                  add_process_fn = NULL);
 #&gt; 
 #&gt; posts &lt;- post_stack_tweets(questions, hashtags = 'rstats',
-#&gt;                            twitter_token_path = '~/twitter_token.rds',
-#&gt;                            post = FALSE);</div><div class='input'>
-</div></pre>
+#&gt;                            post = FALSE);</div><div class='input'><span class='co'>## Sample bot output</span>
+<span class='no'>posts</span></div><div class='output co'>#&gt; [[1]]
+#&gt; Exact radius for geom_point without transformation (r,plot,ggplot2) #rstats https://stackoverflow.com/questions/48720663/exact-radius-for-geom-point-without-transformation
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

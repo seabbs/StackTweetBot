@@ -4,15 +4,12 @@
 \alias{post_stack_tweets}
 \title{Post A Tweet for Each Question}
 \usage{
-post_stack_tweets(questions = NULL, hashtags = "rstats",
-  twitter_token_path = "~/twitter_token.rds", post = TRUE)
+post_stack_tweets(questions = NULL, hashtags = "rstats", post = TRUE)
 }
 \arguments{
 \item{questions}{A list of questions to tweet as produced by \code{\link[StackTweetBot]{get_stack_questions}}.}
 
-\item{hashtags}{A character vector of hashtags to attach to the tweet.}
-
-\item{twitter_token_path}{A character string indicting the path your twitter token.
+\item{hashtags}{A character vector of hashtags to attach to the tweet.
 See \code{\link[StackTweetBot]{add_twitter_api}} for details.}
 
 \item{post}{Logical, defaults to \code{TRUE}. Should the formatted tweets be published on

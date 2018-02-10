@@ -5,7 +5,7 @@
 \title{Get StackOverflow Questions For A List of Tags}
 \usage{
 get_stack_questions(extracted_tags = NULL, excluded_tags = NULL,
-  time_window = 60, Rprofile_path = "~/.Rprofile", add_process_fn = NULL)
+  time_window = 60, add_process_fn = NULL)
 }
 \arguments{
 \item{extracted_tags}{A character vector of tags to extract questions for.}
@@ -18,9 +18,6 @@ Defaults to 60 minutes. Note that a maximum of 100 questions are extracted by
 the StackOverflow api, if you expect your tags to have a high volume of questions
 reduce this. If using this function as part of a sheduled bot makes sure this time
 frame corresponds the frequency with which your bot is running.}
-
-\item{Rprofile_path}{A character string containing the path to your .Rprofile. Defaults
-to your home directory.}
 
 \item{add_process_fn}{A function. If additional munging or data extraction is required add
 to a custom function and pass here. This function must except a dataframe as its first arguement

@@ -6,7 +6,6 @@
 #' by [Jake Thompson](https://www.wjakethompson.com/).
 #' @param questions A list of questions to tweet as produced by \code{\link[StackTweetBot]{get_stack_questions}}.
 #' @param hashtags A character vector of hashtags to attach to the tweet.
-#' @param twitter_token_path A character string indicting the path your twitter token.
 #' See \code{\link[StackTweetBot]{add_twitter_api}} for details.
 #' @param post Logical, defaults to \code{TRUE}. Should the formatted tweets be published on
 #' twitter, if \code{FALSE} then the tweets are instead returned as a list.
@@ -26,7 +25,6 @@
 #'
 post_stack_tweets <- function(questions = NULL,
                               hashtags = "rstats",
-                              twitter_token_path = "~/twitter_token.rds",
                               post = TRUE) {
 
   ## Generate hashtags
@@ -36,6 +34,11 @@ post_stack_tweets <- function(questions = NULL,
     hashtags <- map(hashtags, ~paste0("#", .)) %>%
       paste(collapse = " ")
   }
+
+  title <- NULL
+  creation_date <- NULL
+  link <- NULL
+  tags <- NULL
 
   ## Format tweets
   tweet_text <- pmap(.l = questions, .f = function(title, creation_date, link, tags, ...) {
@@ -54,7 +57,7 @@ post_stack_tweets <- function(questions = NULL,
 
   if (post) {
     ## Post tweets
-    walk(tweet_text, ~rtweet::post_tweet(., token = read_rds(token_path)))
+    walk(tweet_text, ~rtweet::post_tweet(.))
     return(invisible(NULL))
 
   }else{

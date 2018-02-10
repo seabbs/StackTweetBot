@@ -6,9 +6,8 @@
 \usage{
 set_up_stack_tweet_bot(name = "stack_tweet_bot", extracted_tags = NULL,
   excluded_tags = NULL, time_window = 60, add_process_fn = NULL,
-  Rprofile_path = "~/.Rprofile", hashtags = "rstats",
-  twitter_token_path = "~/twitter_token.rds", post = TRUE, dir = NULL,
-  run = TRUE, schedule = TRUE, save = TRUE, verbose = TRUE, ...)
+  hashtags = "rstats", post = TRUE, dir = NULL, run = TRUE,
+  schedule = TRUE, save = TRUE, verbose = TRUE, ...)
 }
 \arguments{
 \item{name}{Character string containing the bots name, defaults to "stack_tweet_bot".}
@@ -28,12 +27,7 @@ frame corresponds the frequency with which your bot is running.}
 to a custom function and pass here. This function must except a dataframe as its first arguement
 and return a dataframe. See the examples for details.}
 
-\item{Rprofile_path}{A character string containing the path to your .Rprofile. Defaults
-to your home directory.}
-
-\item{hashtags}{A character vector of hashtags to attach to the tweet.}
-
-\item{twitter_token_path}{A character string indicting the path your twitter token.
+\item{hashtags}{A character vector of hashtags to attach to the tweet.
 See \code{\link[StackTweetBot]{add_twitter_api}} for details.}
 
 \item{post}{Logical, defaults to \code{TRUE}. Should the formatted tweets be published on
@@ -63,10 +57,12 @@ on your platform.
 }
 \examples{
 
+## Build and run twitter bot
 set_up_stack_tweet_bot(extracted_tags = "ggplot2",
                        run = TRUE, schedule = FALSE,
                        save = TRUE, post = FALSE)
-
+## Sample bot output
+posts
 }
 \seealso{
 \code{\link[StackTweetBot]{get_stack_questions}} \code{\link[StackTweetBot]{post_stack_tweets}}

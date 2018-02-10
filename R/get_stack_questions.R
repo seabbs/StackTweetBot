@@ -11,8 +11,6 @@
 #'  the StackOverflow api, if you expect your tags to have a high volume of questions
 #'  reduce this. If using this function as part of a sheduled bot makes sure this time
 #'  frame corresponds the frequency with which your bot is running.
-#' @param Rprofile_path A character string containing the path to your .Rprofile. Defaults
-#' to your home directory.
 #' @param add_process_fn A function. If additional munging or data extraction is required add
 #' to a custom function and pass here. This function must except a dataframe as its first arguement
 #' and return a dataframe. See the examples for details.
@@ -46,7 +44,6 @@
 get_stack_questions <- function(extracted_tags = NULL,
                                 excluded_tags = NULL,
                                 time_window = 60,
-                                Rprofile_path = "~/.Rprofile",
                                 add_process_fn = NULL) {
 
   if (is.null(extracted_tags)) {
@@ -70,8 +67,7 @@ get_stack_questions <- function(extracted_tags = NULL,
     return(query)
   }
 
-  ##Get  Rprofile
-  source(Rprofile_path)
+  . <- NULL
 
   ##Extract questions from StackOverflow
   tidy_so <- map(extracted_tags, query_tag) %>%

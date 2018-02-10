@@ -8,12 +8,12 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
-Suggests: 
+Suggests:
     usethis,
     devtools,
     covr,
     testthat
-Imports: 
+Imports:
     magrittr,
     stackr,
     rtweet,
@@ -22,6 +22,7 @@ Imports:
     tibble,
     lubridate,
     stringr,
-    glue
+    glue,
+    readr
 Remotes:
     dgrtwo/stackr 

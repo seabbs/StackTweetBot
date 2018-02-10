@@ -32,9 +32,6 @@
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="articles/intro.html">Getting Started</a>
-</li>
-<li>
   <a href="https://twitter.com/h2o_tweets">Example Bot</a>
 </li>
       </ul>
@@ -102,7 +99,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <a href="#docker" class="anchor"></a>Docker</h2>
 <p>This package has been developed in docker based on the <code>rocker/tidyverse</code> image, to access the development environment enter the following at the command line (with an active docker daemon running),</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> pull seabbs/stacktweetbot
-<span class="ex">docker</span> run -d -p 8787:8787 -e USER=StackTweetBot -e PASSWORD=StackTweetBot --name StackTweetBot seabbs/stacktweetbot</code></pre></div>
+<span class="ex">docker</span> run -d -p 8787:8787 -p 1410:1410 -e USER=StackTweetBot -e PASSWORD=StackTweetBot --name StackTweetBot seabbs/stacktweetbot</code></pre></div>
 <p>The rstudio client can be accessed on port <code>8787</code> at <code>localhost</code> (or your machines ip). The default username is getTBinR and the default password is getTBinR. The docker file comes preloaded with <code>cronR</code> and therefore may also be used as a staging enviroment for your twitter bot.</p>
 </div>
 </div>

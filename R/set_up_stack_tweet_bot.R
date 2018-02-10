@@ -22,6 +22,7 @@
 #' @seealso \code{\link[StackTweetBot]{get_stack_questions}} \code{\link[StackTweetBot]{post_stack_tweets}}
 #' \code{\link[StackTweetBot]{add_twitter_api}} \code{\link[StackTweetBot]{add_stack_exchange_api}}
 #' @importFrom glue glue
+#' @importFrom readr write_file
 #' @examples
 #'
 #'## Build and run twitter bot
@@ -35,9 +36,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
                                    excluded_tags = NULL,
                                    time_window = 60,
                                    add_process_fn = NULL,
-                                   Rprofile_path ="~/.Rprofile",
                                    hashtags = "rstats",
-                                   twitter_token_path = "~/twitter_token.rds",
                                    post = TRUE,
                                    dir = NULL,
                                    run = TRUE,
@@ -77,20 +76,16 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
   excluded_tags <- prep_glue_char(excluded_tags)
   hashtags <- prep_glue_char(hashtags)
   time_window <- prep_glue_char(time_window)
-  Rprofile_path <- prep_glue_char(Rprofile_path)
   add_process_fn <- prep_glue_char(add_process_fn)
-  twitter_token_path <-  prep_glue_char(twitter_token_path)
 
   bot <- glue("
               library(StackTweetBot);
               questions <- get_stack_questions(extracted_tags = {extracted_tags},
                                                excluded_tags = {excluded_tags},
                                                time_window = {time_window},
-                                               Rprofile_path = {Rprofile_path},
                                                add_process_fn = {add_process_fn});
 
               posts <- post_stack_tweets(questions, hashtags = {hashtags},
-                                         twitter_token_path = {twitter_token_path},
                                          post = {post});
               ")
 

@@ -55,9 +55,6 @@
   <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../articles/intro.html">Getting Started</a>
-</li>
-<li>
   <a href="https://twitter.com/h2o_tweets">Example Bot</a>
 </li>
       </ul>
@@ -101,7 +98,7 @@ by <a href='https://www.wjakethompson.com/'>Jake Thompson</a>.</p>
     
 
     <pre class="usage"><span class='fu'>get_stack_questions</span>(<span class='kw'>extracted_tags</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>excluded_tags</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>60</span>, <span class='kw'>Rprofile_path</span> <span class='kw'>=</span> <span class='st'>"~/.Rprofile"</span>, <span class='kw'>add_process_fn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+  <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>60</span>, <span class='kw'>add_process_fn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -124,11 +121,6 @@ reduce this. If using this function as part of a sheduled bot makes sure this ti
 frame corresponds the frequency with which your bot is running.</p></td>
     </tr>
     <tr>
-      <th>Rprofile_path</th>
-      <td><p>A character string containing the path to your .Rprofile. Defaults
-to your home directory.</p></td>
-    </tr>
-    <tr>
       <th>add_process_fn</th>
       <td><p>A function. If additional munging or data extraction is required add
 to a custom function and pass here. This function must except a dataframe as its first arguement
@@ -148,28 +140,16 @@ questions related to your selected tags.</p>
 <span class='fu'>get_stack_questions</span>(<span class='kw'>extracted_tags</span> <span class='kw'>=</span> <span class='st'>"ggplot2"</span>,
                     <span class='kw'>excluded_tags</span> <span class='kw'>=</span> <span class='st'>"plotly"</span>,
                     <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>120</span>)</div><div class='output co'>#&gt; $title
-#&gt; [1] "Getting \"npc\" coordinates of ggplot2 grob"  
-#&gt; [2] "Treemap colors mapped to category in R"       
-#&gt; [3] "Grouped Barchart y-Axis -- ggplot"            
-#&gt; [4] "ggplot2::geom_tile can not assign fill color?"
-#&gt; [5] "Create separated US regions"                  
+#&gt; [1] "Exact radius for geom_point without transformation"
 #&gt; 
 #&gt; $creation_date
-#&gt; [1] "2018-02-09 16:47:23 GMT" "2018-02-09 17:16:46 GMT"
-#&gt; [3] "2018-02-09 17:42:44 GMT" "2018-02-09 17:45:24 GMT"
-#&gt; [5] "2018-02-09 18:21:24 GMT"
+#&gt; [1] "2018-02-10 12:15:58 GMT"
 #&gt; 
 #&gt; $link
-#&gt; [1] "https://stackoverflow.com/questions/48710478/getting-npc-coordinates-of-ggplot2-grob"   
-#&gt; [2] "https://stackoverflow.com/questions/48710961/treemap-colors-mapped-to-category-in-r"    
-#&gt; [3] "https://stackoverflow.com/questions/48711358/grouped-barchart-y-axis-ggplot"            
-#&gt; [4] "https://stackoverflow.com/questions/48711408/ggplot2geom-tile-can-not-assign-fill-color"
-#&gt; [5] "https://stackoverflow.com/questions/48711914/create-separated-us-regions"               
+#&gt; [1] "https://stackoverflow.com/questions/48720663/exact-radius-for-geom-point-without-transformation"
 #&gt; 
 #&gt; $tags
-#&gt; [1] "r,ggplot2,lattice,gtable" "r,ggplot2,treemap"       
-#&gt; [3] "r,ggplot2"                "r,ggplot2,fill"          
-#&gt; [5] "r,ggplot2,maps,census"   
+#&gt; [1] "r,plot,ggplot2"
 #&gt; </div><div class='input'>
 <span class='co'>## Add additional processing step</span>
 <span class='fu'>library</span>(<span class='no'>dplyr</span>)
@@ -182,31 +162,19 @@ questions related to your selected tags.</p>
                     <span class='kw'>excluded_tags</span> <span class='kw'>=</span> <span class='st'>"plotly"</span>,
                     <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>120</span>,
                     <span class='kw'>add_process_fn</span> <span class='kw'>=</span> <span class='no'>add_process_fn</span>)</div><div class='output co'>#&gt; $title
-#&gt; [1] "Getting \"npc\" coordinates of ggplot2 grob"  
-#&gt; [2] "Treemap colors mapped to category in R"       
-#&gt; [3] "Grouped Barchart y-Axis -- ggplot"            
-#&gt; [4] "ggplot2::geom_tile can not assign fill color?"
-#&gt; [5] "Create separated US regions"                  
+#&gt; [1] "Exact radius for geom_point without transformation"
 #&gt; 
 #&gt; $creation_date
-#&gt; [1] "2018-02-09 16:47:23 GMT" "2018-02-09 17:16:46 GMT"
-#&gt; [3] "2018-02-09 17:42:44 GMT" "2018-02-09 17:45:24 GMT"
-#&gt; [5] "2018-02-09 18:21:24 GMT"
+#&gt; [1] "2018-02-10 12:15:58 GMT"
 #&gt; 
 #&gt; $link
-#&gt; [1] "https://stackoverflow.com/questions/48710478/getting-npc-coordinates-of-ggplot2-grob"   
-#&gt; [2] "https://stackoverflow.com/questions/48710961/treemap-colors-mapped-to-category-in-r"    
-#&gt; [3] "https://stackoverflow.com/questions/48711358/grouped-barchart-y-axis-ggplot"            
-#&gt; [4] "https://stackoverflow.com/questions/48711408/ggplot2geom-tile-can-not-assign-fill-color"
-#&gt; [5] "https://stackoverflow.com/questions/48711914/create-separated-us-regions"               
+#&gt; [1] "https://stackoverflow.com/questions/48720663/exact-radius-for-geom-point-without-transformation"
 #&gt; 
 #&gt; $tags
-#&gt; [1] "r,ggplot2,lattice,gtable" "r,ggplot2,treemap"       
-#&gt; [3] "r,ggplot2"                "r,ggplot2,fill"          
-#&gt; [5] "r,ggplot2,maps,census"   
+#&gt; [1] "r,plot,ggplot2"
 #&gt; 
 #&gt; $id
-#&gt; [1] 5 4 3 2 1
+#&gt; [1] 1
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -43,7 +43,7 @@ This package has been developed in docker based on the `rocker/tidyverse` image,
 
 ``` bash
 docker pull seabbs/stacktweetbot
-docker run -d -p 8787:8787 -e USER=StackTweetBot -e PASSWORD=StackTweetBot --name StackTweetBot seabbs/stacktweetbot
+docker run -d -p 8787:8787 -p 1410:1410 -e USER=StackTweetBot -e PASSWORD=StackTweetBot --name StackTweetBot seabbs/stacktweetbot
 ```
 
 The rstudio client can be accessed on port `8787` at `localhost` (or your machines ip). The default username is getTBinR and the default password is getTBinR. The docker file comes preloaded with `cronR` and therefore may also be used as a staging enviroment for your twitter bot.

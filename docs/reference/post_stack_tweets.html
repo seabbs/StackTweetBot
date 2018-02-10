@@ -55,9 +55,6 @@
   <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../articles/intro.html">Getting Started</a>
-</li>
-<li>
   <a href="https://twitter.com/h2o_tweets">Example Bot</a>
 </li>
       </ul>
@@ -100,8 +97,7 @@ as a formatted list. This code is based on the <a href='https://github.com/wjake
 by <a href='https://www.wjakethompson.com/'>Jake Thompson</a>.</p>
     
 
-    <pre class="usage"><span class='fu'>post_stack_tweets</span>(<span class='kw'>questions</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>hashtags</span> <span class='kw'>=</span> <span class='st'>"rstats"</span>,
-  <span class='kw'>twitter_token_path</span> <span class='kw'>=</span> <span class='st'>"~/twitter_token.rds"</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>post_stack_tweets</span>(<span class='kw'>questions</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>hashtags</span> <span class='kw'>=</span> <span class='st'>"rstats"</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -112,12 +108,8 @@ by <a href='https://www.wjakethompson.com/'>Jake Thompson</a>.</p>
     </tr>
     <tr>
       <th>hashtags</th>
-      <td><p>A character vector of hashtags to attach to the tweet.</p></td>
-    </tr>
-    <tr>
-      <th>twitter_token_path</th>
-      <td><p>A character string indicting the path your twitter token.
-See <code>add_twitter_api</code> for details.</p></td>
+      <td><p>A character vector of hashtags to attach to the tweet.
+See <code><a href='add_twitter_api.html'>add_twitter_api</a></code> for details.</p></td>
     </tr>
     <tr>
       <th>post</th>
@@ -138,19 +130,7 @@ twitter, if <code>FALSE</code> then the tweets are instead returned as a list.</
                                   <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>120</span>)
 
 <span class='fu'>post_stack_tweets</span>(<span class='no'>ggplot2_qs</span>, <span class='kw'>hashtags</span> <span class='kw'>=</span> <span class='st'>"rstats"</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; Getting "npc" coordinates of ggplot2 grob (r,ggplot2,lattice,gtable) #rstats https://stackoverflow.com/questions/48710478/getting-npc-coordinates-of-ggplot2-grob
-#&gt; 
-#&gt; [[2]]
-#&gt; Treemap colors mapped to category in R (r,ggplot2,treemap) #rstats https://stackoverflow.com/questions/48710961/treemap-colors-mapped-to-category-in-r
-#&gt; 
-#&gt; [[3]]
-#&gt; Grouped Barchart y-Axis -- ggplot (r,ggplot2) #rstats https://stackoverflow.com/questions/48711358/grouped-barchart-y-axis-ggplot
-#&gt; 
-#&gt; [[4]]
-#&gt; ggplot2::geom_tile can not assign fill color? (r,ggplot2,fill) #rstats https://stackoverflow.com/questions/48711408/ggplot2geom-tile-can-not-assign-fill-color
-#&gt; 
-#&gt; [[5]]
-#&gt; Create separated US regions (r,ggplot2,maps,census) #rstats https://stackoverflow.com/questions/48711914/create-separated-us-regions
+#&gt; Exact radius for geom_point without transformation (r,plot,ggplot2) #rstats https://stackoverflow.com/questions/48720663/exact-radius-for-geom-point-without-transformation
 #&gt; </div><div class='input'>
 </div></pre>
   </div>

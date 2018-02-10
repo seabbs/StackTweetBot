@@ -9,8 +9,6 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Getting Started"
-      href: articles/intro.html
     - text: "Example Bot"
       href: https://twitter.com/h2o_tweets
 
