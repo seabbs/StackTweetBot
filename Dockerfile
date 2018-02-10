@@ -18,4 +18,4 @@ RUN Rscript -e 'devtools::install("home/rstudio/getTBinR")'
 
 Run Rscript -e 'install.packages("cronR")'
 
-Run Rscript -e 'dectools::install_github("r-lib/pkgdown")
+Run Rscript -e 'dectools::install_github("r-lib/pkgdown")'

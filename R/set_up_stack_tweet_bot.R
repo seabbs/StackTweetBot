@@ -24,10 +24,12 @@
 #' @importFrom glue glue
 #' @examples
 #'
+#'## Build and run twitter bot
 #' set_up_stack_tweet_bot(extracted_tags = "ggplot2",
 #'                        run = TRUE, schedule = FALSE,
 #'                        save = TRUE, post = FALSE)
-#'
+#' ## Sample bot output
+#'posts
 set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
                                    extracted_tags = NULL,
                                    excluded_tags = NULL,
