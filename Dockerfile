@@ -14,7 +14,7 @@ ADD . /home/rstudio/StackTweetBot
 
 RUN Rscript -e 'devtools::install_dev_deps("home/rstudio/StackTweetBot")'
 
-RUN Rscript -e 'devtools::install("home/rstudio/getTBinR")'
+RUN Rscript -e 'devtools::install("home/rstudio/StackTweetBot")'
 
 Run Rscript -e 'install.packages("cronR")'
 
