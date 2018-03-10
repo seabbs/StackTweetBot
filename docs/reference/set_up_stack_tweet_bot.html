@@ -18,6 +18,8 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -25,6 +27,12 @@
 <script src="../pkgdown.js"></script>
   
   
+<meta property="og:title" content="Set Up a StackOverflow Twitter Bot — set_up_stack_tweet_bot" />
+
+<meta property="og:description" content="Set up a StackOverflow twitter bot for a given list of tags, and excluded tags.
+Job scheduling can be set up using either cronR or taskscheduleR depending
+on your platform." />
+<meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -145,7 +153,7 @@ twitter, if <code>FALSE</code> then the tweets are instead returned as a list.</
     <tr>
       <th>dir</th>
       <td><p>Character string containing the directory into which to save the bot, defaults
-to the temporary directory. Is not saved if <code>save = FALSE</code>.</p></td>
+to the temporary directory. Is not used if <code>save = FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>run</th>
@@ -153,12 +161,17 @@ to the temporary directory. Is not saved if <code>save = FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>schedule</th>
-      <td><p>Logical, defaults to <code>TRUE</code>. Should the bot be schduled to run
-using cronR/taskscheduleR?</p></td>
+      <td><p>Logical, defaults to <code>TRUE</code>. Should the bot be scheduled to run
+using cronR/taskscheduleR? In order to schedule the bot <code>save</code> must be <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>save</th>
       <td><p>Logical, defaults to <code>TRUE</code>. Should the bot be saved.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Logical, defaults to <code>TRUE</code>. Should progress messages be
+printed to the terminal.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -184,7 +197,8 @@ set this by passing <code>frequency = "hourly"</code> (<code>cronR</code>) or <c
 <span class='fu'>set_up_stack_tweet_bot</span>(<span class='kw'>extracted_tags</span> <span class='kw'>=</span> <span class='st'>"ggplot2"</span>,
                        <span class='kw'>run</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>schedule</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
                        <span class='kw'>save</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>No directory has been supplied for saving the twitter bot,</span>
-#&gt; <span class='message'>           defaulting to saving to the temporary directory</span></div><div class='output co'>#&gt; <span class='message'>Saving the following code to: /tmp/RtmpUUso7Q/stack_tweet_bot.R</span></div><div class='output co'>#&gt; <span class='message'>Code: </span>
+#&gt; <span class='message'>           defaulting to saving to the temporary directory. This directory will not be</span>
+#&gt; <span class='message'>             preserved once the r session has ended.</span></div><div class='output co'>#&gt; <span class='message'>Saving the following code to: /tmp/Rtmpj1Wdef/stack_tweet_bot.R</span></div><div class='output co'>#&gt; <span class='message'>Code: </span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>library(StackTweetBot);</span>
 #&gt; <span class='message'>questions &lt;- get_stack_questions(extracted_tags = 'ggplot2',</span>
@@ -202,7 +216,10 @@ set this by passing <code>frequency = "hourly"</code> (<code>cronR</code>) or <c
 #&gt; posts &lt;- post_stack_tweets(questions, hashtags = 'rstats',
 #&gt;                            post = FALSE);</div><div class='input'><span class='co'>## Sample bot output</span>
 <span class='no'>posts</span></div><div class='output co'>#&gt; [[1]]
-#&gt; Exact radius for geom_point without transformation (r,plot,ggplot2) #rstats https://stackoverflow.com/questions/48720663/exact-radius-for-geom-point-without-transformation
+#&gt; Legend does not fit well ggplot density (ggplot2,label,legend) #rstats https://stackoverflow.com/questions/49210823/legend-does-not-fit-well-ggplot-density
+#&gt; 
+#&gt; [[2]]
+#&gt; Plot proportions of dummy over time for three groups (r,plot,ggplot2) #rstats https://stackoverflow.com/questions/49211011/plot-proportions-of-dummy-over-time-for-three-groups
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -234,3 +251,4 @@ set this by passing <code>frequency = "hourly"</code> (<code>cronR</code>) or <c
 
   </body>
 </html>
+

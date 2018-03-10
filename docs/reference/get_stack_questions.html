@@ -18,6 +18,8 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -25,6 +27,12 @@
 <script src="../pkgdown.js"></script>
   
   
+<meta property="og:title" content="Get StackOverflow Questions For A List of Tags — get_stack_questions" />
+
+<meta property="og:description" content="Extract StackOverflow questions for a given set of tags, exluding questions
+related to an optional list of tags. This code is based on the tidyverse tweets bot
+by Jake Thompson." />
+<meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -140,16 +148,18 @@ questions related to your selected tags.</p>
 <span class='fu'>get_stack_questions</span>(<span class='kw'>extracted_tags</span> <span class='kw'>=</span> <span class='st'>"ggplot2"</span>,
                     <span class='kw'>excluded_tags</span> <span class='kw'>=</span> <span class='st'>"plotly"</span>,
                     <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>120</span>)</div><div class='output co'>#&gt; $title
-#&gt; [1] "Exact radius for geom_point without transformation"
+#&gt; [1] "Legend does not fit well ggplot density"             
+#&gt; [2] "Plot proportions of dummy over time for three groups"
 #&gt; 
 #&gt; $creation_date
-#&gt; [1] "2018-02-10 12:15:58 GMT"
+#&gt; [1] "2018-03-10 15:33:31 UTC" "2018-03-10 15:51:08 UTC"
 #&gt; 
 #&gt; $link
-#&gt; [1] "https://stackoverflow.com/questions/48720663/exact-radius-for-geom-point-without-transformation"
+#&gt; [1] "https://stackoverflow.com/questions/49210823/legend-does-not-fit-well-ggplot-density"             
+#&gt; [2] "https://stackoverflow.com/questions/49211011/plot-proportions-of-dummy-over-time-for-three-groups"
 #&gt; 
 #&gt; $tags
-#&gt; [1] "r,plot,ggplot2"
+#&gt; [1] "ggplot2,label,legend" "r,plot,ggplot2"      
 #&gt; </div><div class='input'>
 <span class='co'>## Add additional processing step</span>
 <span class='fu'>library</span>(<span class='no'>dplyr</span>)
@@ -162,19 +172,21 @@ questions related to your selected tags.</p>
                     <span class='kw'>excluded_tags</span> <span class='kw'>=</span> <span class='st'>"plotly"</span>,
                     <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>120</span>,
                     <span class='kw'>add_process_fn</span> <span class='kw'>=</span> <span class='no'>add_process_fn</span>)</div><div class='output co'>#&gt; $title
-#&gt; [1] "Exact radius for geom_point without transformation"
+#&gt; [1] "Legend does not fit well ggplot density"             
+#&gt; [2] "Plot proportions of dummy over time for three groups"
 #&gt; 
 #&gt; $creation_date
-#&gt; [1] "2018-02-10 12:15:58 GMT"
+#&gt; [1] "2018-03-10 15:33:31 UTC" "2018-03-10 15:51:08 UTC"
 #&gt; 
 #&gt; $link
-#&gt; [1] "https://stackoverflow.com/questions/48720663/exact-radius-for-geom-point-without-transformation"
+#&gt; [1] "https://stackoverflow.com/questions/49210823/legend-does-not-fit-well-ggplot-density"             
+#&gt; [2] "https://stackoverflow.com/questions/49211011/plot-proportions-of-dummy-over-time-for-three-groups"
 #&gt; 
 #&gt; $tags
-#&gt; [1] "r,plot,ggplot2"
+#&gt; [1] "ggplot2,label,legend" "r,plot,ggplot2"      
 #&gt; 
 #&gt; $id
-#&gt; [1] 1
+#&gt; [1] 2 1
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -204,3 +216,4 @@ questions related to your selected tags.</p>
 
   </body>
 </html>
+

@@ -35,10 +35,11 @@ post_stack_tweets <- function(questions = NULL,
       paste(collapse = " ")
   }
 
-  title <- NULL
+  . <- NULL
   creation_date <- NULL
   link <- NULL
   tags <- NULL
+  title <- NULL
 
   ## Format tweets
   tweet_text <- pmap(.l = questions, .f = function(title, creation_date, link, tags, ...) {

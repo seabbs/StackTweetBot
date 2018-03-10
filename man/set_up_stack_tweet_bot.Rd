@@ -34,14 +34,17 @@ See \code{\link[StackTweetBot]{add_twitter_api}} for details.}
 twitter, if \code{FALSE} then the tweets are instead returned as a list.}
 
 \item{dir}{Character string containing the directory into which to save the bot, defaults
-to the temporary directory. Is not saved if \code{save = FALSE}.}
+to the temporary directory. Is not used if \code{save = FALSE}.}
 
 \item{run}{Logical, defaults to \code{TRUE}. Should the bot be run once saved?}
 
-\item{schedule}{Logical, defaults to \code{TRUE}. Should the bot be schduled to run
-using cronR/taskscheduleR?}
+\item{schedule}{Logical, defaults to \code{TRUE}. Should the bot be scheduled to run
+using cronR/taskscheduleR? In order to schedule the bot \code{save} must be \code{TRUE}.}
 
 \item{save}{Logical, defaults to \code{TRUE}. Should the bot be saved.}
+
+\item{verbose}{Logical, defaults to \code{TRUE}. Should progress messages be
+printed to the terminal.}
 
 \item{...}{Additional arguements to pass to \code{\link[cronR]{cron_add}} or \code{\link[taskscheduleR]{taskscheduler_create}}
 when \code{schedule = TRUE}.The suggested frequency for the bot run is hourly,

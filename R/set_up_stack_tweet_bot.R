@@ -5,11 +5,13 @@
 #' on your platform.
 #' @param name Character string containing the bots name, defaults to "stack_tweet_bot".
 #' @param dir Character string containing the directory into which to save the bot, defaults
-#' to the temporary directory. Is not saved if \code{save = FALSE}.
+#' to the temporary directory. Is not used if \code{save = FALSE}.
 #' @param run Logical, defaults to \code{TRUE}. Should the bot be run once saved?
-#' @param schedule Logical, defaults to \code{TRUE}. Should the bot be schduled to run
-#' using cronR/taskscheduleR?
+#' @param schedule Logical, defaults to \code{TRUE}. Should the bot be scheduled to run
+#' using cronR/taskscheduleR? In order to schedule the bot \code{save} must be \code{TRUE}.
 #' @param save Logical, defaults to \code{TRUE}. Should the bot be saved.
+#' @param verbose Logical, defaults to \code{TRUE}. Should progress messages be
+#' printed to the terminal.
 #' @param ... Additional arguements to pass to \code{\link[cronR]{cron_add}} or \code{\link[taskscheduleR]{taskscheduler_create}}
 #' when \code{schedule = TRUE}.The suggested frequency for the bot run is hourly,
 #'  set this by passing \code{frequency = "hourly"} (\code{cronR}) or \code{schedule = "HOURLY"}  (\code{taskscheduleR}).
@@ -53,7 +55,8 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
 
    if (verbose && save) {
      message("No directory has been supplied for saving the twitter bot,
-           defaulting to saving to the temporary directory")
+           defaulting to saving to the temporary directory. This directory will not be
+             preserved once the r session has ended.")
    }
 
    dir <- tempdir()
@@ -125,9 +128,10 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
 
     if (os %in% "Windows") {
 
-      if (!library(taskscheduleR,
-                   logical.return = T,
-                   quietly = TRUE)) {
+      if (!try(
+        requireNamespace("taskscheduleR",
+                         quietly = TRUE),
+        silent = TRUE) %in% "try-error") {
         stop("Please download it with, install.packages('taskscheduleR')")
       }
 
@@ -140,9 +144,10 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
 
     }else if (os %in% c("Linux", "Darwin")) {
 
-      if (!library(cronR,
-                   logical.return = T,
-                   quietly = TRUE)) {
+      if (!try(
+        requireNamespace("taskscheduleR",
+                         quietly = TRUE),
+        silent = TRUE) %in% "try-error") {
         stop("Please download it with, install.packages('cronR')")
       }
 

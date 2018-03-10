@@ -43,6 +43,39 @@ install.packages("taskscheduleR")
 
 ## Quick start
 
+1. Load the package
+
+```{r load-package}
+library(StackTweetBot)
+```
+1. Set up access (or check you access) to the Twitter API with, 
+
+```{r set-up-twitter}
+add_twitter_api()
+```
+
+1. Set up access (or check access) to the StackOverflow API. This is required to increase your daily rate limit from 300 to 10,000.
+
+```{r set-up-stack}
+add_stack_api()
+```
+
+1. Set up and schedule the twitter bot, specifying the tags to look for and to exclude. Schedule the bot using `schedule = TRUE` and specifying the update time depending on your platform, see `?set_up_stack_tweet_bot` for detauls. To allow posting set `post = TRUE`.
+
+```{r schedule-twitter-bot}
+set_up_stack_tweet_bot(extracted_tags = "ggplot2",
+                       excluded_tags = "python",
+                       time_window = 30,
+                       add_process_fn = NULL, 
+                       hashtags = "rstats",
+                       run = TRUE, 
+                       schedule = FALSE,
+                       save = TRUE, 
+                       post = FALSE,
+                       dir = NULL,
+                       verbose = TRUE,
+                       frequency = "hourly")
+```
 
 ## Additional Functionality
 
