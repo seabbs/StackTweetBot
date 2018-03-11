@@ -62,7 +62,7 @@ add_twitter_api()
 add_stack_api()
 ```
 
-5. Set up and schedule the twitter bot, specifying the tags to look for and to exclude. Schedule the bot using `schedule = TRUE` and specifying the update time depending on your platform, see `?set_up_stack_tweet_bot` for details. To allow posting set `post = TRUE`, and to save the bot to a permanent directory (so that it will run after your R session has ended) specify the directory with `dir`..
+5. Set up and schedule the twitter bot, specifying the tags to look for and to exclude. Schedule the bot using `schedule = TRUE` and specifying the update time depending on your platform, see `?set_up_stack_tweet_bot` for details. To allow posting set `post = TRUE`, and to save the bot to a permanent directory (so that it will run after your R session has ended) specify the directory with `dir`.
 
 ```{r schedule-twitter-bot}
 set_up_stack_tweet_bot(extracted_tags = "ggplot2",

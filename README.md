@@ -75,7 +75,7 @@ add_stack_api()
 #> Sys.setenv(STACK_EXCHANGE_KEY = "***")
 ```
 
-1.  Set up and schedule the twitter bot, specifying the tags to look for and to exclude. Schedule the bot using `schedule = TRUE` and specifying the update time depending on your platform, see `?set_up_stack_tweet_bot` for details. To allow posting set `post = TRUE`, and to save the bot to a permanent directory (so that it will run after your R session has ended) specify the directory with `dir`..
+1.  Set up and schedule the twitter bot, specifying the tags to look for and to exclude. Schedule the bot using `schedule = TRUE` and specifying the update time depending on your platform, see `?set_up_stack_tweet_bot` for details. To allow posting set `post = TRUE`, and to save the bot to a permanent directory (so that it will run after your R session has ended) specify the directory with `dir`.
 
 ``` r
 set_up_stack_tweet_bot(extracted_tags = "ggplot2",
@@ -93,7 +93,7 @@ set_up_stack_tweet_bot(extracted_tags = "ggplot2",
 #> No directory has been supplied for saving the twitter bot,
 #>            defaulting to saving to the temporary directory. This directory will not be
 #>              preserved once the r session has ended.
-#> Saving the following code to: /tmp/RtmpJRklyd/stack_tweet_bot.R
+#> Saving the following code to: /tmp/RtmpixsoNt/stack_tweet_bot.R
 #> Code: 
 #> 
 #> library(StackTweetBot);

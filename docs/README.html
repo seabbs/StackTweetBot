@@ -155,7 +155,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/set_up_stack_tweet_bot.html">set_up_stack_tweet_bot</a></span>(<span class="dt">extracted_tags =</span> <span class="st">"ggplot2"</span>,
                        <span class="dt">excluded_tags =</span> <span class="st">"python"</span>,
-                       <span class="dt">time_window =</span> <span class="dv">30</span>,
+                       <span class="dt">time_window =</span> <span class="dv">60</span>,
                        <span class="dt">add_process_fn =</span> <span class="ot">NULL</span>, 
                        <span class="dt">hashtags =</span> <span class="st">"rstats"</span>,
                        <span class="dt">run =</span> <span class="ot">TRUE</span>, 
@@ -168,13 +168,13 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; No directory has been supplied for saving the twitter bot,</span>
 <span class="co">#&gt;            defaulting to saving to the temporary directory. This directory will not be</span>
 <span class="co">#&gt;              preserved once the r session has ended.</span>
-<span class="co">#&gt; Saving the following code to: /tmp/RtmpccBcNm/stack_tweet_bot.R</span>
+<span class="co">#&gt; Saving the following code to: /tmp/RtmpJRklyd/stack_tweet_bot.R</span>
 <span class="co">#&gt; Code: </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; library(StackTweetBot);</span>
 <span class="co">#&gt; questions &lt;- get_stack_questions(extracted_tags = 'ggplot2',</span>
 <span class="co">#&gt;                                  excluded_tags = 'python',</span>
-<span class="co">#&gt;                                  time_window = 30,</span>
+<span class="co">#&gt;                                  time_window = 60,</span>
 <span class="co">#&gt;                                  add_process_fn = NULL);</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; posts &lt;- post_stack_tweets(questions, hashtags = 'rstats',</span>
@@ -183,11 +183,18 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; library(StackTweetBot);</span>
 <span class="co">#&gt; questions &lt;- get_stack_questions(extracted_tags = 'ggplot2',</span>
 <span class="co">#&gt;                                  excluded_tags = 'python',</span>
-<span class="co">#&gt;                                  time_window = 30,</span>
+<span class="co">#&gt;                                  time_window = 60,</span>
 <span class="co">#&gt;                                  add_process_fn = NULL);</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; posts &lt;- post_stack_tweets(questions, hashtags = 'rstats',</span>
 <span class="co">#&gt;                            post = FALSE);</span></code></pre></div>
+<ol>
+<li>Check your bot is running.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## If using cronR on mac or linux
+cronR<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/cronR/topics/cron_ls">cron_ls</a></span>()
+## If using taskscheduleR on windows
+taskscheduleR<span class="op">::</span><span class="kw">taskscheduler_ls</span>()</code></pre></div>
 </div>
 <div id="additional-functionality" class="section level2">
 <h2 class="hasAnchor">
