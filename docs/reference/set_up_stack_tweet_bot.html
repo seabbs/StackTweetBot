@@ -188,7 +188,7 @@ set this by passing <code>frequency = "hourly"</code> (<code>cronR</code>) or <c
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p><code><a href='get_stack_questions.html'>get_stack_questions</a></code> <code><a href='post_stack_tweets.html'>post_stack_tweets</a></code>
-<code><a href='add_twitter_api.html'>add_twitter_api</a></code> <code>add_stack_exchange_api</code></p>
+<code><a href='add_twitter_api.html'>add_twitter_api</a></code> <code><a href='add_stack_api.html'>add_stack_api</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -198,7 +198,7 @@ set this by passing <code>frequency = "hourly"</code> (<code>cronR</code>) or <c
                        <span class='kw'>run</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>schedule</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
                        <span class='kw'>save</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>No directory has been supplied for saving the twitter bot,</span>
 #&gt; <span class='message'>           defaulting to saving to the temporary directory. This directory will not be</span>
-#&gt; <span class='message'>             preserved once the r session has ended.</span></div><div class='output co'>#&gt; <span class='message'>Saving the following code to: /tmp/Rtmpj1Wdef/stack_tweet_bot.R</span></div><div class='output co'>#&gt; <span class='message'>Code: </span>
+#&gt; <span class='message'>             preserved once the r session has ended.</span></div><div class='output co'>#&gt; <span class='message'>Saving the following code to: /tmp/RtmpugAfar/stack_tweet_bot.R</span></div><div class='output co'>#&gt; <span class='message'>Code: </span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>library(StackTweetBot);</span>
 #&gt; <span class='message'>questions &lt;- get_stack_questions(extracted_tags = 'ggplot2',</span>
@@ -216,10 +216,10 @@ set this by passing <code>frequency = "hourly"</code> (<code>cronR</code>) or <c
 #&gt; posts &lt;- post_stack_tweets(questions, hashtags = 'rstats',
 #&gt;                            post = FALSE);</div><div class='input'><span class='co'>## Sample bot output</span>
 <span class='no'>posts</span></div><div class='output co'>#&gt; [[1]]
-#&gt; Legend does not fit well ggplot density (ggplot2,label,legend) #rstats https://stackoverflow.com/questions/49210823/legend-does-not-fit-well-ggplot-density
+#&gt; Countinuous outline in stacked ggplot2 barplot (r,ggplot2) #rstats https://stackoverflow.com/questions/49223425/countinuous-outline-in-stacked-ggplot2-barplot
 #&gt; 
 #&gt; [[2]]
-#&gt; Plot proportions of dummy over time for three groups (r,plot,ggplot2) #rstats https://stackoverflow.com/questions/49211011/plot-proportions-of-dummy-over-time-for-three-groups
+#&gt; ggplot2 scale_fill_grey for boxplot (r,ggplot2) #rstats https://stackoverflow.com/questions/49223476/ggplot2-scale-fill-grey-for-boxplot
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

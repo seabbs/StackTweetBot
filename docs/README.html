@@ -94,11 +94,11 @@
       <h1>/home/StackTweetBot/StackTweetBot/README.md</h1>
     </div>
 
-<div id="stackoverflow-tweet-bots" class="section level1">
+<div id="tools-to-make-a-stack-overflow-twitter-bot" class="section level1">
 <h1 class="hasAnchor">
-<a href="#stackoverflow-tweet-bots" class="anchor"></a>StackOverflow Tweet Bots</h1>
-<p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a> <a href="https://travis-ci.org/seabbs/StackTweetBot"><img src="https://travis-ci.org/seabbs/StackTweetBot.svg?branch=master" alt="Travis build status"></a> <a href="https://ci.appveyor.com/api/projects/status/github//seabbs/StackTweetBot/?branch=master&amp;svg=true"><img src="https://ci.appveyor.com/seabbs/StackTweetBot" alt="AppVeyor Build Status"></a> <a href="https://codecov.io/github/seabbs/StackTweetBot?branch=master"><img src="https://codecov.io/gh/seabbs/StackTweetBot/branch/master/graph/badge.svg" alt="Coverage status"></a></p>
-<p>The aim of this package is to allow for easy creation of StackOverflow twitter bots. It provides a wrapper around functionality from <a href="http://rtweet.info/"><code>rtweet</code></a> and <a href="https://github.com/dgrtwo/stackr"><code>stackr</code></a>. It was inspired by the <a href="https://github.com/wjakethompson/tidyverse-tweets/blob/master/tidyversetweets.R">tidyverse tweets bot</a> #’ by <a href="https://www.wjakethompson.com/">Jake Thompson</a>, from which large amounts of code has been adapted. For a working example of a bot built with this package see <a href="https://twitter.com/h2o_tweets">h2o tweets bot</a>.</p>
+<a href="#tools-to-make-a-stack-overflow-twitter-bot" class="anchor"></a>Tools to Make a Stack Overflow Twitter Bot</h1>
+<p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a> <a href="https://travis-ci.org/seabbs/StackTweetBot"><img src="https://travis-ci.org/seabbs/StackTweetBot.svg?branch=master" alt="Travis build status"></a> <a href="https://ci.appveyor.com/project/seabbs/stacktweetbot"><img src="https://ci.appveyor.com/api/projects/status/gfrebm0dpua1wmff?svg=true" alt="AppVeyor Build status"></a> <a href="https://codecov.io/github/seabbs/StackTweetBot?branch=master"><img src="https://codecov.io/gh/seabbs/StackTweetBot/branch/master/graph/badge.svg" alt="Coverage status"></a></p>
+<p>The aim of this package is to allow for easy creation of Stack Overflow twitter bots. It provides a wrapper around functionality from <a href="http://rtweet.info/"><code>rtweet</code></a> and <a href="https://github.com/dgrtwo/stackr"><code>stackr</code></a>. It was inspired by the <a href="https://github.com/wjakethompson/tidyverse-tweets/blob/master/tidyversetweets.R">tidyverse tweets bot</a> by <a href="https://www.wjakethompson.com/">Jake Thompson</a>, from which large amounts of code has been adapted. For a working example of a bot built with this package see <a href="https://twitter.com/h2o_tweets">h2o tweets bot</a>, or <a href="https://github.com/seabbs/h2o_tweets">here</a> for the code.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -118,7 +118,8 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(StackTweetBot)</code></pre></div>
 <ol>
-<li>Set up access (or check you access) to the Twitter API with,</li>
+<li><p>Set up your bots <a href="https://twitter.com/">Twitter</a> account.</p></li>
+<li><p>Set up access (or check you access) to the Twitter API with,</p></li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/add_twitter_api.html">add_twitter_api</a></span>()
 <span class="co">#&gt; A Twitter token is required to add posts to your twitter account. </span>
@@ -150,7 +151,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Sys.setenv(STACK_EXCHANGE_KEY = "***")</span></code></pre></div>
 <ol>
-<li>Set up and schedule the twitter bot, specifying the tags to look for and to exclude. Schedule the bot using <code>schedule = TRUE</code> and specifying the update time depending on your platform, see <code><a href="reference/set_up_stack_tweet_bot.html">?set_up_stack_tweet_bot</a></code>. To allow posting set <code>post = TRUE</code>.</li>
+<li>Set up and schedule the twitter bot, specifying the tags to look for and to exclude. Schedule the bot using <code>schedule = TRUE</code> and specifying the update time depending on your platform, see <code><a href="reference/set_up_stack_tweet_bot.html">?set_up_stack_tweet_bot</a></code> for details. To allow posting set <code>post = TRUE</code>.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/set_up_stack_tweet_bot.html">set_up_stack_tweet_bot</a></span>(<span class="dt">extracted_tags =</span> <span class="st">"ggplot2"</span>,
                        <span class="dt">excluded_tags =</span> <span class="st">"python"</span>,
@@ -167,7 +168,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; No directory has been supplied for saving the twitter bot,</span>
 <span class="co">#&gt;            defaulting to saving to the temporary directory. This directory will not be</span>
 <span class="co">#&gt;              preserved once the r session has ended.</span>
-<span class="co">#&gt; Saving the following code to: /tmp/RtmpagNQds/stack_tweet_bot.R</span>
+<span class="co">#&gt; Saving the following code to: /tmp/RtmpWrGRED/stack_tweet_bot.R</span>
 <span class="co">#&gt; Code: </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; library(StackTweetBot);</span>
