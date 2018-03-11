@@ -153,7 +153,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
       }
 
       if (verbose) {
-        message("Starting cron job for ", name, "bot. Check cron_ls() for a list of
+        message("Starting cron job for ", name, " bot. Check cron_ls() for a list of
             running jobs.")
       }
 
