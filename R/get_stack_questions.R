@@ -46,11 +46,6 @@ get_stack_questions <- function(extracted_tags = NULL,
                                 time_window = 60,
                                 add_process_fn = NULL) {
 
-  creation_date <- NULL
-  link <- NULL
-  tags <- NULL
-  title <- NULL
-  desc <- NULL
 
   if (is.null(extracted_tags)) {
     stop("At least one tag is required by extracted tags")
