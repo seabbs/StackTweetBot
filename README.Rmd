@@ -89,7 +89,7 @@ taskscheduleR::taskscheduler_ls()
 ```
 ## Additional Functionality
 
-File an issue [here](https://github.com/seabbs/StackTweetBot/issues) if there is a feature, or a data set, that you think is missing from the package, or better yet submit a pull request!
+File an issue [here](https://github.com/seabbs/StackTweetBot/issues) if there is a feature, that you think is missing from the package, or better yet submit a pull request!
 
 ## Docker
 
