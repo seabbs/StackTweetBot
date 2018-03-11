@@ -22,7 +22,7 @@
 #' @return A character string containing the twitter bot code.
 #' @export
 #' @seealso \code{\link[StackTweetBot]{get_stack_questions}} \code{\link[StackTweetBot]{post_stack_tweets}}
-#' \code{\link[StackTweetBot]{add_twitter_api}} \code{\link[StackTweetBot]{add_stack_exchange_api}}
+#' \code{\link[StackTweetBot]{add_twitter_api}} \code{\link[StackTweetBot]{add_stack_api}}
 #' @importFrom glue glue
 #' @importFrom readr write_file
 #' @examples
@@ -140,6 +140,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
             running jobs.")
       }
 
+      ## Requires taskscheduleR
       taskscheduleR::taskscheduler_create(rscript = bot_path, ...)
 
     }else if (os %in% c("Linux", "Darwin")) {
@@ -156,6 +157,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
             running jobs.")
       }
 
+      ## Requires CRON
       cronR::cron_add(bot_path, ...)
     }
   }

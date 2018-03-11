@@ -12,7 +12,9 @@ Suggests:
     usethis,
     devtools,
     covr,
-    testthat
+    testthat,
+    cronR,
+    taskscheduleR
 Imports:
     magrittr,
     stackr,

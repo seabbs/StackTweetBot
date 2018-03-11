@@ -69,5 +69,5 @@ posts
 }
 \seealso{
 \code{\link[StackTweetBot]{get_stack_questions}} \code{\link[StackTweetBot]{post_stack_tweets}}
-\code{\link[StackTweetBot]{add_twitter_api}} \code{\link[StackTweetBot]{add_stack_exchange_api}}
+\code{\link[StackTweetBot]{add_twitter_api}} \code{\link[StackTweetBot]{add_stack_api}}
 }
