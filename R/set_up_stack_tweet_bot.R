@@ -146,7 +146,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
     }else if (os %in% c("Linux", "Darwin")) {
 
       if (!try(
-        requireNamespace("taskscheduleR",
+        requireNamespace("cronR",
                          quietly = TRUE),
         silent = TRUE) %in% "try-error") {
         stop("Please download it with, install.packages('cronR')")
