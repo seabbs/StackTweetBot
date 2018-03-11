@@ -4,9 +4,8 @@
 language: R
 sudo: false
 cache: packages
+r_check_force_suggests: false
 
-env:
-  - _R_CHECK_FORCE_SUGGESTS_ = FALSE
 r:
   - oldrel
   - release
