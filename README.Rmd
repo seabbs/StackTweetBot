@@ -67,7 +67,7 @@ add_stack_api()
 ```{r schedule-twitter-bot}
 set_up_stack_tweet_bot(extracted_tags = "ggplot2",
                        excluded_tags = "python",
-                       time_window = 30,
+                       time_window = 60,
                        add_process_fn = NULL, 
                        hashtags = "rstats",
                        run = TRUE, 
@@ -79,6 +79,14 @@ set_up_stack_tweet_bot(extracted_tags = "ggplot2",
                        frequency = "hourly")
 ```
 
+6. Check your bot is running.
+
+```{r, eval = FALSE}
+## If using cronR on mac or linux
+cronR::cron_ls()
+## If using taskscheduleR on windows
+taskscheduleR::taskscheduler_ls()
+```
 ## Additional Functionality
 
 File an issue [here](https://github.com/seabbs/StackTweetBot/issues) if there is a feature, or a data set, that you think is missing from the package, or better yet submit a pull request!

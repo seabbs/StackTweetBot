@@ -80,7 +80,7 @@ add_stack_api()
 ``` r
 set_up_stack_tweet_bot(extracted_tags = "ggplot2",
                        excluded_tags = "python",
-                       time_window = 30,
+                       time_window = 60,
                        add_process_fn = NULL, 
                        hashtags = "rstats",
                        run = TRUE, 
@@ -93,13 +93,13 @@ set_up_stack_tweet_bot(extracted_tags = "ggplot2",
 #> No directory has been supplied for saving the twitter bot,
 #>            defaulting to saving to the temporary directory. This directory will not be
 #>              preserved once the r session has ended.
-#> Saving the following code to: /tmp/RtmpccBcNm/stack_tweet_bot.R
+#> Saving the following code to: /tmp/RtmpJRklyd/stack_tweet_bot.R
 #> Code: 
 #> 
 #> library(StackTweetBot);
 #> questions <- get_stack_questions(extracted_tags = 'ggplot2',
 #>                                  excluded_tags = 'python',
-#>                                  time_window = 30,
+#>                                  time_window = 60,
 #>                                  add_process_fn = NULL);
 #> 
 #> posts <- post_stack_tweets(questions, hashtags = 'rstats',
@@ -108,11 +108,20 @@ set_up_stack_tweet_bot(extracted_tags = "ggplot2",
 #> library(StackTweetBot);
 #> questions <- get_stack_questions(extracted_tags = 'ggplot2',
 #>                                  excluded_tags = 'python',
-#>                                  time_window = 30,
+#>                                  time_window = 60,
 #>                                  add_process_fn = NULL);
 #> 
 #> posts <- post_stack_tweets(questions, hashtags = 'rstats',
 #>                            post = FALSE);
+```
+
+1.  Check your bot is running.
+
+``` r
+## If using cronR on mac or linux
+cronR::cron_ls()
+## If using taskscheduleR on windows
+taskscheduleR::taskscheduler_ls()
 ```
 
 Additional Functionality
