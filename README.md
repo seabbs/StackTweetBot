@@ -93,7 +93,7 @@ set_up_stack_tweet_bot(extracted_tags = "ggplot2",
 #> No directory has been supplied for saving the twitter bot,
 #>            defaulting to saving to the temporary directory. This directory will not be
 #>              preserved once the r session has ended.
-#> Saving the following code to: /tmp/RtmpL0XkD6/stack_tweet_bot.R
+#> Saving the following code to: /tmp/Rtmp8s5awa/stack_tweet_bot.R
 #> Code: 
 #> 
 #> library(StackTweetBot);
