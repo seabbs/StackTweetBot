@@ -1,6 +1,6 @@
 #' Add a StackOverflow API Key
 #'
-#' @description Checks if a StackOverflow API is present in the enviroment and if not
+#' @description Checks if a StackOverflow API is present in the environment and if not
 #' gives instructions on how to create one.
 #' @return Prints instructions to the command line.
 #' @export

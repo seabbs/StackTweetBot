@@ -37,9 +37,9 @@ Quick start
 library(StackTweetBot)
 ```
 
-1.  Set up your bots [Twitter](https://twitter.com/) account.
+1.  Set up your bots [Twitter](https://twitter.com/) account - making it clear it is a bot!
 
-2.  Set up access (or check you access) to the Twitter API with,
+2.  Set up access to the Twitter API with,
 
 ``` r
 add_twitter_api()
@@ -55,16 +55,16 @@ add_twitter_api()
 #>                                             consumer_key = "key_here",
 #>                                             consumer_secret = "secret_here") 
 #> 
-#> Now save this token to your home directory with the following code: 
+#> Note if setting up the bot on a remote server do this on locally and then uploadNow save this token to your home directory with the following code: 
 #> 
 #> saveRDS(twitter_token, file = "~/twitter_token.rds"") 
 #> 
-#> Now save the token as an enviroment variable (replacing *** the location of your token): 
+#> Now save the token as an enviroment variable: 
 #> 
 #> Sys.setenv(TWITTER_PAT = "~/twitter_token.rds")
 ```
 
-1.  Set up access (or check access) to the Stack Overflow API. This is required to increase your daily rate limit from 300 to 10,000.
+1.  Set up access to the Stack Overflow API. This is required to increase your daily rate limit from 300 to 10,000.
 
 ``` r
 add_stack_api()
@@ -75,7 +75,14 @@ add_stack_api()
 #> Sys.setenv(STACK_EXCHANGE_KEY = "***")
 ```
 
-1.  Set up and schedule the twitter bot, specifying the tags to look for and to exclude. Schedule the bot using `schedule = TRUE` and specifying the update time depending on your platform, see `?set_up_stack_tweet_bot` for details. To allow posting set `post = TRUE`, and to save the bot to a permanent directory (so that it will run after your R session has ended) specify the directory with `dir`.
+1.  Check you have correctly set up your API access (restart your r session first).
+
+``` r
+add_twitter_api()
+add_stack_api()
+```
+
+1.  Set up and schedule the twitter bot, settting the tags to look for and to exclude. Schedule the bot using `schedule = TRUE` and specifying the update time depending on your platform, see `?set_up_stack_tweet_bot` for details. To allow posting set `post = TRUE`, and to save the bot to a permanent directory (so that it will run after your R session has ended) set the directory with `dir`.
 
 ``` r
 set_up_stack_tweet_bot(extracted_tags = "ggplot2",
@@ -93,7 +100,7 @@ set_up_stack_tweet_bot(extracted_tags = "ggplot2",
 #> No directory has been supplied for saving the twitter bot,
 #>            defaulting to saving to the temporary directory. This directory will not be
 #>              preserved once the r session has ended.
-#> Saving the following code to: /tmp/Rtmp8s5awa/stack_tweet_bot.R
+#> Saving the following code to: /tmp/RtmpWGgJes/stack_tweet_bot.R
 #> Code: 
 #> 
 #> library(StackTweetBot);

@@ -48,21 +48,28 @@ install.packages("taskscheduleR")
 library(StackTweetBot)
 ```
 
-2. Set up your bots [Twitter](https://twitter.com/) account.
+2. Set up your bots [Twitter](https://twitter.com/) account - making it clear it is a bot!
 
-3. Set up access (or check you access) to the Twitter API with, 
+3. Set up access to the Twitter API with, 
 
 ```{r set-up-twitter}
 add_twitter_api()
 ```
 
-4. Set up access (or check access) to the Stack Overflow API. This is required to increase your daily rate limit from 300 to 10,000.
+4. Set up access to the Stack Overflow API. This is required to increase your daily rate limit from 300 to 10,000.
 
 ```{r set-up-stack}
 add_stack_api()
 ```
 
-5. Set up and schedule the twitter bot, specifying the tags to look for and to exclude. Schedule the bot using `schedule = TRUE` and specifying the update time depending on your platform, see `?set_up_stack_tweet_bot` for details. To allow posting set `post = TRUE`, and to save the bot to a permanent directory (so that it will run after your R session has ended) specify the directory with `dir`.
+5. Check you have correctly set up your API access (restart your r session first).
+
+```{r check-api, eval = FALSE}
+add_twitter_api()
+add_stack_api()
+```
+
+5. Set up and schedule the twitter bot, settting the tags to look for and to exclude. Schedule the bot using `schedule = TRUE` and specifying the update time depending on your platform, see `?set_up_stack_tweet_bot` for details. To allow posting set `post = TRUE`, and to save the bot to a permanent directory (so that it will run after your R session has ended) set the directory with `dir`.
 
 ```{r schedule-twitter-bot}
 set_up_stack_tweet_bot(extracted_tags = "ggplot2",
@@ -87,6 +94,7 @@ cronR::cron_ls()
 ## If using taskscheduleR on windows
 taskscheduleR::taskscheduler_ls()
 ```
+
 ## Additional Functionality
 
 File an issue [here](https://github.com/seabbs/StackTweetBot/issues) if there is a feature, that you think is missing from the package, or better yet submit a pull request!
