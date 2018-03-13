@@ -19,7 +19,7 @@
 #'
 #'ggplot2_qs <-  get_stack_questions(extracted_tags = "ggplot2",
 #'                                   excluded_tags = "plotly",
-#'                                   time_window = 120)
+#'                                   time_window = 60*24)
 #'
 #'post_stack_tweets(ggplot2_qs, hashtags = "rstats", post = FALSE)
 #'

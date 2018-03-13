@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 
   [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
   [![Travis build status](https://travis-ci.org/seabbs/StackTweetBot.svg?branch=master)](https://travis-ci.org/seabbs/StackTweetBot)
-[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/gfrebm0dpua1wmff?svg=true)](https://ci.appveyor.com/project/seabbs/stacktweetbot)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/fxe1jxdykm5hvn1m?svg=true)](https://ci.appveyor.com/project/seabbs/stacktweetbot)
   [![Coverage status](https://codecov.io/gh/seabbs/StackTweetBot/branch/master/graph/badge.svg)](https://codecov.io/github/seabbs/StackTweetBot?branch=master)
 
 The aim of this package is to allow for easy creation of Stack Overflow twitter bots. It provides a wrapper around functionality from [`rtweet`](http://rtweet.info/) and [`stackr`](https://github.com/dgrtwo/stackr). It was inspired by the [tidyverse tweets bot](https://github.com/wjakethompson/tidyverse-tweets/blob/master/tidyversetweets.R) by [Jake Thompson](https://www.wjakethompson.com/), from which large amounts of code has been adapted. For a working example of a bot built with this package see [h2o tweets bot](https://twitter.com/h2o_tweets), or [here](https://github.com/seabbs/h2o_tweets) for the code.

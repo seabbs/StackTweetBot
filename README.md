@@ -2,7 +2,7 @@
 Tools to Make a Stack Overflow Twitter Bot
 ==========================================
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) [![Travis build status](https://travis-ci.org/seabbs/StackTweetBot.svg?branch=master)](https://travis-ci.org/seabbs/StackTweetBot) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/gfrebm0dpua1wmff?svg=true)](https://ci.appveyor.com/project/seabbs/stacktweetbot) [![Coverage status](https://codecov.io/gh/seabbs/StackTweetBot/branch/master/graph/badge.svg)](https://codecov.io/github/seabbs/StackTweetBot?branch=master)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) [![Travis build status](https://travis-ci.org/seabbs/StackTweetBot.svg?branch=master)](https://travis-ci.org/seabbs/StackTweetBot) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/fxe1jxdykm5hvn1m?svg=true)](https://ci.appveyor.com/project/seabbs/stacktweetbot) [![Coverage status](https://codecov.io/gh/seabbs/StackTweetBot/branch/master/graph/badge.svg)](https://codecov.io/github/seabbs/StackTweetBot?branch=master)
 
 The aim of this package is to allow for easy creation of Stack Overflow twitter bots. It provides a wrapper around functionality from [`rtweet`](http://rtweet.info/) and [`stackr`](https://github.com/dgrtwo/stackr). It was inspired by the [tidyverse tweets bot](https://github.com/wjakethompson/tidyverse-tweets/blob/master/tidyversetweets.R) by [Jake Thompson](https://www.wjakethompson.com/), from which large amounts of code has been adapted. For a working example of a bot built with this package see [h2o tweets bot](https://twitter.com/h2o_tweets), or [here](https://github.com/seabbs/h2o_tweets) for the code.
 
@@ -55,13 +55,17 @@ add_twitter_api()
 #>                                             consumer_key = "key_here",
 #>                                             consumer_secret = "secret_here") 
 #> 
-#> Note if setting up the bot on a remote server do this on locally and then uploadNow save this token to your home directory with the following code: 
+#> Note if setting up the bot on a remote server do this locally and then upload 
+#> 
+#> Now save this token to your home directory with the following code: 
 #> 
 #> saveRDS(twitter_token, file = "~/twitter_token.rds"") 
 #> 
 #> Now save the token as an enviroment variable: 
 #> 
-#> Sys.setenv(TWITTER_PAT = "~/twitter_token.rds")
+#> Sys.setenv(TWITTER_PAT = "~/twitter_token.rds") 
+#> 
+#> If using Rstudio server you made need to manually add the TWITTER_PAT to the .Renviron.
 ```
 
 1.  Set up access to the Stack Overflow API. This is required to increase your daily rate limit from 300 to 10,000.
@@ -72,7 +76,9 @@ add_stack_api()
 #> The first step is to sign up for an API key here: https://stackapps.com/apps/oauth/register 
 #> Now add it as a enviroment variable using the following code (replacing *** with your API key): 
 #> 
-#> Sys.setenv(STACK_EXCHANGE_KEY = "***")
+#> Sys.setenv(STACK_EXCHANGE_KEY = "***") 
+#> 
+#> If using Rstudio server you may need to manually add the STACK_EXCHANGE_KEY to the .Renviron.
 ```
 
 1.  Check you have correctly set up your API access (restart your r session first).
@@ -100,7 +106,7 @@ set_up_stack_tweet_bot(extracted_tags = "ggplot2",
 #> No directory has been supplied for saving the twitter bot,
 #>            defaulting to saving to the temporary directory. This directory will not be
 #>              preserved once the r session has ended.
-#> Saving the following code to: /tmp/Rtmpw02t3v/stack_tweet_bot.R
+#> Saving the following code to: /tmp/RtmpSq47TC/stack_tweet_bot.R
 #> Code: 
 #> 
 #> library(StackTweetBot);

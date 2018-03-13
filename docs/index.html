@@ -96,8 +96,8 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(StackTweetBot)</code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Set up your bots <a href="https://twitter.com/">Twitter</a> account.</p></li>
-<li><p>Set up access (or check you access) to the Twitter API with,</p></li>
+<li><p>Set up your bots <a href="https://twitter.com/">Twitter</a> account - making it clear it is a bot!</p></li>
+<li><p>Set up access to the Twitter API with,</p></li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/add_twitter_api.html">add_twitter_api</a></span>()
 <span class="co">#&gt; A Twitter token is required to add posts to your twitter account. </span>
@@ -112,24 +112,35 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt;                                             consumer_key = "key_here",</span>
 <span class="co">#&gt;                                             consumer_secret = "secret_here") </span>
 <span class="co">#&gt; </span>
+<span class="co">#&gt; Note if setting up the bot on a remote server do this locally and then upload </span>
+<span class="co">#&gt; </span>
 <span class="co">#&gt; Now save this token to your home directory with the following code: </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; saveRDS(twitter_token, file = "~/twitter_token.rds"") </span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Now save the token as an enviroment variable (replacing *** the location of your token): </span>
+<span class="co">#&gt; Now save the token as an enviroment variable: </span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Sys.setenv(TWITTER_PAT = "~/twitter_token.rds")</span></code></pre></div>
+<span class="co">#&gt; Sys.setenv(TWITTER_PAT = "~/twitter_token.rds") </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; If using Rstudio server you made need to manually add the TWITTER_PAT to the .Renviron.</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
-<li>Set up access (or check access) to the Stack Overflow API. This is required to increase your daily rate limit from 300 to 10,000.</li>
+<li>Set up access to the Stack Overflow API. This is required to increase your daily rate limit from 300 to 10,000.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/add_stack_api.html">add_stack_api</a></span>()
 <span class="co">#&gt; An API key is required to increase your daily rate limit from 300 to 10,000. </span>
 <span class="co">#&gt; The first step is to sign up for an API key here: https://stackapps.com/apps/oauth/register </span>
 <span class="co">#&gt; Now add it as a enviroment variable using the following code (replacing *** with your API key): </span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Sys.setenv(STACK_EXCHANGE_KEY = "***")</span></code></pre></div>
+<span class="co">#&gt; Sys.setenv(STACK_EXCHANGE_KEY = "***") </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; If using Rstudio server you may need to manually add the STACK_EXCHANGE_KEY to the .Renviron.</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
-<li>Set up and schedule the twitter bot, specifying the tags to look for and to exclude. Schedule the bot using <code>schedule = TRUE</code> and specifying the update time depending on your platform, see <code><a href="reference/set_up_stack_tweet_bot.html">?set_up_stack_tweet_bot</a></code> for details. To allow posting set <code>post = TRUE</code>, and to save the bot to a permanent directory (so that it will run after your R session has ended) specify the directory with <code>dir</code>.</li>
+<li>Check you have correctly set up your API access (restart your r session first).</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/add_twitter_api.html">add_twitter_api</a></span>()
+<span class="kw"><a href="reference/add_stack_api.html">add_stack_api</a></span>()</code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Set up and schedule the twitter bot, settting the tags to look for and to exclude. Schedule the bot using <code>schedule = TRUE</code>, with the arguements to use to define the update time being platform dependent, see <code><a href="reference/set_up_stack_tweet_bot.html">?set_up_stack_tweet_bot</a></code> for details. To allow posting set <code>post = TRUE</code>, and to save the bot to a permanent directory (so that it will run after your R session has ended) set the directory with <code>dir</code>.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/set_up_stack_tweet_bot.html">set_up_stack_tweet_bot</a></span>(<span class="dt">extracted_tags =</span> <span class="st">"ggplot2"</span>,
                        <span class="dt">excluded_tags =</span> <span class="st">"python"</span>,
@@ -146,7 +157,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; No directory has been supplied for saving the twitter bot,</span>
 <span class="co">#&gt;            defaulting to saving to the temporary directory. This directory will not be</span>
 <span class="co">#&gt;              preserved once the r session has ended.</span>
-<span class="co">#&gt; Saving the following code to: /tmp/RtmparkRh9/stack_tweet_bot.R</span>
+<span class="co">#&gt; Saving the following code to: /tmp/RtmpWksBgZ/stack_tweet_bot.R</span>
 <span class="co">#&gt; Code: </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; library(StackTweetBot);</span>
@@ -203,7 +214,7 @@ taskscheduleR<span class="op">::</span><span class="kw">taskscheduler_ls</span>(
 <ul class="list-unstyled">
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a></li>
 <li><a href="https://travis-ci.org/seabbs/StackTweetBot"><img src="https://travis-ci.org/seabbs/StackTweetBot.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://ci.appveyor.com/project/seabbs/stacktweetbot"><img src="https://ci.appveyor.com/api/projects/status/gfrebm0dpua1wmff?svg=true" alt="AppVeyor Build status"></a></li>
+<li><a href="https://ci.appveyor.com/project/seabbs/stacktweetbot"><img src="https://ci.appveyor.com/api/projects/status/fxe1jxdykm5hvn1m?svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/github/seabbs/StackTweetBot?branch=master"><img src="https://codecov.io/gh/seabbs/StackTweetBot/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
 </ul>
 </div>

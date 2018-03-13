@@ -14,7 +14,8 @@ add_stack_api <- function() {
     message("An API key is required to increase your daily rate limit from 300 to 10,000. \n",
             "The first step is to sign up for an API key here: https://stackapps.com/apps/oauth/register \n",
             "Now add it as a enviroment variable using the following code (replacing *** with your API key): \n\n",
-            'Sys.setenv(STACK_EXCHANGE_KEY = "***")')
+            'Sys.setenv(STACK_EXCHANGE_KEY = "***") \n\n',
+            'If using Rstudio server you may need to manually add the STACK_EXCHANGE_KEY to the .Renviron.')
   }else{
     message("Your API key appears to be correctly stored as an enviroment variable.")
   }

@@ -37,7 +37,7 @@ by \href{https://www.wjakethompson.com/}{Jake Thompson}.
 ## Basic call
 get_stack_questions(extracted_tags = "ggplot2",
                     excluded_tags = "plotly",
-                    time_window = 120)
+                    time_window = 60*24)
 
 ## Add additional processing step
 library(dplyr)
@@ -48,6 +48,6 @@ add_process_fn <- function(df) {
 
 get_stack_questions(extracted_tags = "ggplot2",
                     excluded_tags = "plotly",
-                    time_window = 120,
+                    time_window = 60*24,
                     add_process_fn = add_process_fn)
 }

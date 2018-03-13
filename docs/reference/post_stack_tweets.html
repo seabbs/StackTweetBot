@@ -135,9 +135,80 @@ twitter, if <code>FALSE</code> then the tweets are instead returned as a list.</
     <pre class="examples"><div class='input'>
 <span class='no'>ggplot2_qs</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='get_stack_questions.html'>get_stack_questions</a></span>(<span class='kw'>extracted_tags</span> <span class='kw'>=</span> <span class='st'>"ggplot2"</span>,
                                   <span class='kw'>excluded_tags</span> <span class='kw'>=</span> <span class='st'>"plotly"</span>,
-                                  <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>120</span>)
+                                  <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>60</span>*<span class='fl'>24</span>)
 
-<span class='fu'>post_stack_tweets</span>(<span class='no'>ggplot2_qs</span>, <span class='kw'>hashtags</span> <span class='kw'>=</span> <span class='st'>"rstats"</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; list()</div><div class='input'>
+<span class='fu'>post_stack_tweets</span>(<span class='no'>ggplot2_qs</span>, <span class='kw'>hashtags</span> <span class='kw'>=</span> <span class='st'>"rstats"</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; Cumulative plot in ggplot2 (r,plot,ggplot2,cumsum) #rstats https://stackoverflow.com/questions/49238865/cumulative-plot-in-ggplot2
+#&gt; 
+#&gt; [[2]]
+#&gt; Misaligned points in boxplots using ggplot2 (r,ggplot2) #rstats https://stackoverflow.com/questions/49240194/misaligned-points-in-boxplots-using-ggplot2
+#&gt; 
+#&gt; [[3]]
+#&gt; How to increase resolution of ggplots when exporting using officer R (r,ggplot2,officer) #rstats https://stackoverflow.com/questions/49240961/how-to-increase-resolution-of-ggplots-when-exporting-using-officer-r
+#&gt; 
+#&gt; [[4]]
+#&gt; Showing X axis value label on top of the histogram (r,ggplot2) #rstats https://stackoverflow.com/questions/49241460/showing-x-axis-value-label-on-top-of-the-histogram
+#&gt; 
+#&gt; [[5]]
+#&gt; unable to start png() device for plot names create with "paste" function (r,plot,ggplot2) #rstats https://stackoverflow.com/questions/49243161/unable-to-start-png-device-for-plot-names-create-with-paste-function
+#&gt; 
+#&gt; [[6]]
+#&gt; ggplot add horizontal line inside for loop (r,ggplot2) #rstats https://stackoverflow.com/questions/49244049/ggplot-add-horizontal-line-inside-for-loop
+#&gt; 
+#&gt; [[7]]
+#&gt; R Shiny not plotting some ggplot2 layers (r,ggplot2,shiny,visualization,data-visualization) #rstats https://stackoverflow.com/questions/49244946/r-shiny-not-plotting-some-ggplot2-layers
+#&gt; 
+#&gt; [[8]]
+#&gt; Days for major and hours for minor ticks (r,ggplot2) #rstats https://stackoverflow.com/questions/49246106/days-for-major-and-hours-for-minor-ticks
+#&gt; 
+#&gt; [[9]]
+#&gt; ggplot2 - add proportion and count values to barchart (r,ggplot2) #rstats https://stackoverflow.com/questions/49246486/ggplot2-add-proportion-and-count-values-to-barchart
+#&gt; 
+#&gt; [[10]]
+#&gt; How to draw the background and change the color of each laboratory? (r,ggplot2,tidyverse) #rstats https://stackoverflow.com/questions/49246553/how-to-draw-the-background-and-change-the-color-of-each-laboratory
+#&gt; 
+#&gt; [[11]]
+#&gt; Can we change angle of text with geom_label in ggplot2? (r,ggplot2) #rstats https://stackoverflow.com/questions/49246650/can-we-change-angle-of-text-with-geom-label-in-ggplot2
+#&gt; 
+#&gt; [[12]]
+#&gt; Unexpected Walker alias table output using ggplot2 (r,ggplot2,stacked-chart) #rstats https://stackoverflow.com/questions/49246760/unexpected-walker-alias-table-output-using-ggplot2
+#&gt; 
+#&gt; [[13]]
+#&gt; Showing a legend on a multiple-Y axis plot in ggplot (r,ggplot2) #rstats https://stackoverflow.com/questions/49247040/showing-a-legend-on-a-multiple-y-axis-plot-in-ggplot
+#&gt; 
+#&gt; [[14]]
+#&gt; Create multiple 2-column bar plots plotting a particular factor against all factors in a loop (r,ggplot2) #rstats https://stackoverflow.com/questions/49247222/create-multiple-2-column-bar-plots-plotting-a-particular-factor-against-all-fact
+#&gt; 
+#&gt; [[15]]
+#&gt; ggplot alpha = 0 not working (r,ggplot2) #rstats https://stackoverflow.com/questions/49247417/ggplot-alpha-0-not-working
+#&gt; 
+#&gt; [[16]]
+#&gt; Need smoothed line on histogram. Why does geom_density draw two lines? (r,ggplot2,histogram,smoothing,density-plot) #rstats https://stackoverflow.com/questions/49247483/need-smoothed-line-on-histogram-why-does-geom-density-draw-two-lines
+#&gt; 
+#&gt; [[17]]
+#&gt; How to use multiple columns as the frame of an animation in gganimate package (R)? (r,animation,ggplot2,visualization,gganimate) #rstats https://stackoverflow.com/questions/49247591/how-to-use-multiple-columns-as-the-frame-of-an-animation-in-gganimate-package-r
+#&gt; 
+#&gt; [[18]]
+#&gt; Plotting a table from dataframe values using both ggplot2 and gridExtra packages in R (r,ggplot2,table,gridextra) #rstats https://stackoverflow.com/questions/49250257/plotting-a-table-from-dataframe-values-using-both-ggplot2-and-gridextra-packages
+#&gt; 
+#&gt; [[19]]
+#&gt; Is it possible to save a ggplot in RDS format with a global variable in the ggplot() call? (r,ggplot2) #rstats https://stackoverflow.com/questions/49251921/is-it-possible-to-save-a-ggplot-in-rds-format-with-a-global-variable-in-the-ggpl
+#&gt; 
+#&gt; [[20]]
+#&gt; Difference in ggplot in RMD and flexdashboard (r,ggplot2,flexdashboard) #rstats https://stackoverflow.com/questions/49255392/difference-in-ggplot-in-rmd-and-flexdashboard
+#&gt; 
+#&gt; [[21]]
+#&gt; Mark in ggplot when the observations go below a certain number (r,ggplot2) #rstats https://stackoverflow.com/questions/49256057/mark-in-ggplot-when-the-observations-go-below-a-certain-number
+#&gt; 
+#&gt; [[22]]
+#&gt; choices combination,order &amp; tree (r,ggplot2) #rstats https://stackoverflow.com/questions/49257258/choices-combination-order-tree
+#&gt; 
+#&gt; [[23]]
+#&gt; what's difference between "method" argument values in geom_smooth() (r,ggplot2,smoothing) #rstats https://stackoverflow.com/questions/49257753/whats-difference-between-method-argument-values-in-geom-smooth
+#&gt; 
+#&gt; [[24]]
+#&gt; ggplot2 is not plotting two groups (ggplot2,tidyverse) #rstats https://stackoverflow.com/questions/49258931/ggplot2-is-not-plotting-two-groups
+#&gt; </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -29,6 +29,7 @@
 #'
 #'## Build and run twitter bot
 #' set_up_stack_tweet_bot(extracted_tags = "ggplot2",
+#'                        time_window = 60 * 24,
 #'                        run = TRUE, schedule = FALSE,
 #'                        save = TRUE, post = FALSE)
 #' ## Sample bot output
@@ -58,14 +59,14 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
            defaulting to saving to the temporary directory. This directory will not be
              preserved once the r session has ended.")
    }
-   
+
    if (schedule) {
      stop("A directory must be specified in order for the bot to be scheduled")
      }
 
    dir <- tempdir()
  }
-  
+
   ## Format arguements prior to glueing
   prep_glue_char <- function(vec) {
     if (!is.null(vec) && length(vec) > 1) {
@@ -129,7 +130,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
   if (schedule) {
 
     schedule_bot_path <- file.path(getwd(), bot_path)
-    
+
     os <- Sys.info()[['sysname']]
 
     if (os %in% "Windows") {

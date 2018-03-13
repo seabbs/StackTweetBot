@@ -124,13 +124,17 @@ gives instructions on how to create one.</p>
 #&gt; <span class='message'>                                            consumer_key = "key_here",</span>
 #&gt; <span class='message'>                                            consumer_secret = "secret_here") </span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>Note if setting up the bot on a remote server do this on a lococally and then uploadNow save this token to your home directory with the following code: </span>
+#&gt; <span class='message'>Note if setting up the bot on a remote server do this locally and then upload </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>Now save this token to your home directory with the following code: </span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>saveRDS(twitter_token, file = "~/twitter_token.rds"") </span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>Now save the token as an enviroment variable (replacing *** the location of your token): </span>
+#&gt; <span class='message'>Now save the token as an enviroment variable: </span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>Sys.setenv(TWITTER_PAT = "~/twitter_token.rds")</span></div></pre>
+#&gt; <span class='message'>Sys.setenv(TWITTER_PAT = "~/twitter_token.rds") </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>If using Rstudio server you made need to manually add the TWITTER_PAT to the .Renviron.</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

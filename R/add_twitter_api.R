@@ -19,11 +19,12 @@ add_twitter_api <- function() {
             'twitter_token <- rtweet::create_token(app = "your_appname_here",
                                             consumer_key = "key_here",
                                             consumer_secret = "secret_here") \n\n',
-            'Note if setting up the bot on a remote server do this on locally and then upload',
+            'Note if setting up the bot on a remote server do this locally and then upload \n\n',
             "Now save this token to your home directory with the following code: \n\n",
             'saveRDS(twitter_token, file = "~/twitter_token.rds"") \n\n',
             "Now save the token as an enviroment variable: \n\n",
-            'Sys.setenv(TWITTER_PAT = "~/twitter_token.rds")')
+            'Sys.setenv(TWITTER_PAT = "~/twitter_token.rds") \n\n',
+            'If using Rstudio server you made need to manually add the TWITTER_PAT to the .Renviron.')
   }else{
     message("Your API key appears to be correctly stored as an enviroment variable.")
   }
