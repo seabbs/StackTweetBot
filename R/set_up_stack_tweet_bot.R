@@ -61,6 +61,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
    
    if (schedule) {
      stop("A directory must be specified in order for the bot to be scheduled")
+     }
 
    dir <- tempdir()
  }
