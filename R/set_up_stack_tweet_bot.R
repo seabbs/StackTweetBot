@@ -95,7 +95,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
                                                time_window = {time_window},
                                                add_process_fn = {add_process_fn});
 
-              message('Extracted ', nrow(questions), ' questions');
+              message('Extracted ', length(questions$title), ' questions');
 
               message('Posting questions as tweets');
 
