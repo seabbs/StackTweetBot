@@ -87,10 +87,17 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
 
   bot <- glue("
               library(StackTweetBot);
+
+              message('Getting Stack Overflow questions at ', Sys.time());
+
               questions <- get_stack_questions(extracted_tags = {extracted_tags},
                                                excluded_tags = {excluded_tags},
                                                time_window = {time_window},
                                                add_process_fn = {add_process_fn});
+
+              message('Extracted ', nrow(questions), ' questions');
+
+              message('Posting questions as tweets');
 
               posts <- post_stack_tweets(questions, hashtags = {hashtags},
                                          post = {post});
