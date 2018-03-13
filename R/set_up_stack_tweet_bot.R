@@ -94,7 +94,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
                                          post = {post});
               ")
 
-  bot_path <- file.path(paste0("~", getwd(), dir), paste0(name, ".R"))
+  bot_path <- file.path(dir, paste0(name, ".R"))
 
   if (save) {
     if (verbose) {
@@ -126,6 +126,8 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
 
   if (schedule) {
 
+    schedule_bot_path <- paste0(getwd(), bot_path)
+    
     os <- Sys.info()[['sysname']]
 
     if (os %in% "Windows") {
@@ -143,7 +145,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
       }
 
       ## Requires taskscheduleR
-      taskscheduleR::taskscheduler_create(rscript = bot_path, ...)
+      taskscheduleR::taskscheduler_create(rscript = schedule_bot_path, ...)
 
     }else if (os %in% c("Linux", "Darwin")) {
 
@@ -160,7 +162,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
       }
 
       ## Requires CRON
-      bot_cmd <- cronR::cron_rscript(bot_path, log_append = TRUE)
+      bot_cmd <- cronR::cron_rscript(schedule_bot_path, log_append = TRUE)
       cronR::cron_add(bot_cmd, ...)
     }
   }
