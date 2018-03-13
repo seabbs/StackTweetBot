@@ -92,7 +92,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
                                          post = {post});
               ")
 
-  bot_path <- file.path(dir, paste0(name, ".R"))
+  bot_path <- file.path(paste0("~", getwd()), dir, paste0(name, ".R"))
 
   if (save) {
     if (verbose) {
