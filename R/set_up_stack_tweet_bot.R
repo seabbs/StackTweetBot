@@ -60,7 +60,9 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
    }
 
    dir <- tempdir()
- }
+ }else{
+   dir <- paste0("/", dir)
+   }
 
   ## Format arguements prior to glueing
   prep_glue_char <- function(vec) {
@@ -92,7 +94,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
                                          post = {post});
               ")
 
-  bot_path <- file.path(paste0("~", getwd()), dir, paste0(name, ".R"))
+  bot_path <- file.path(paste0("~", getwd(), dir), paste0(name, ".R"))
 
   if (save) {
     if (verbose) {
