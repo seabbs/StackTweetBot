@@ -58,12 +58,13 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
            defaulting to saving to the temporary directory. This directory will not be
              preserved once the r session has ended.")
    }
+   
+   if (schedule) {
+     stop("A directory must be specified in order for the bot to be scheduled")
 
    dir <- tempdir()
- }else{
-   dir <- paste0("/", dir)
-   }
-
+ }
+  
   ## Format arguements prior to glueing
   prep_glue_char <- function(vec) {
     if (!is.null(vec) && length(vec) > 1) {
@@ -126,7 +127,7 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
 
   if (schedule) {
 
-    schedule_bot_path <- paste0(getwd(), bot_path)
+    schedule_bot_path <- file.path(getwd(), bot_path)
     
     os <- Sys.info()[['sysname']]
 
