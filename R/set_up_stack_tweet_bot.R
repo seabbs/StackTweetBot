@@ -158,7 +158,8 @@ set_up_stack_tweet_bot <- function(name = "stack_tweet_bot",
       }
 
       ## Requires CRON
-      cronR::cron_add(bot_path, ...)
+      bot_cmd <- cronR::cron_rscript(bot_path, log_append = TRUE)
+      cronR::cron_add(bot_cmd, ...)
     }
   }
 
