@@ -106,23 +106,40 @@ set_up_stack_tweet_bot(extracted_tags = "ggplot2",
 #> No directory has been supplied for saving the twitter bot,
 #>            defaulting to saving to the temporary directory. This directory will not be
 #>              preserved once the r session has ended.
-#> Saving the following code to: /tmp/RtmpSq47TC/stack_tweet_bot.R
+#> Saving the following code to: /tmp/RtmprxUH68/stack_tweet_bot.R
 #> Code: 
 #> 
 #> library(StackTweetBot);
+#> 
+#> message('Getting Stack Overflow questions at ', Sys.time());
+#> 
 #> questions <- get_stack_questions(extracted_tags = 'ggplot2',
 #>                                  excluded_tags = 'python',
 #>                                  time_window = 60,
 #>                                  add_process_fn = NULL);
+#> 
+#> message('Extracted ', length(questions$title), ' questions');
+#> 
+#> message('Posting questions as tweets');
 #> 
 #> posts <- post_stack_tweets(questions, hashtags = 'rstats',
 #>                            post = FALSE);
 #> Running bot..
+#> Getting Stack Overflow questions at 2018-03-13 14:42:07
+#> Extracted 2 questions
+#> Posting questions as tweets
 #> library(StackTweetBot);
+#> 
+#> message('Getting Stack Overflow questions at ', Sys.time());
+#> 
 #> questions <- get_stack_questions(extracted_tags = 'ggplot2',
 #>                                  excluded_tags = 'python',
 #>                                  time_window = 60,
 #>                                  add_process_fn = NULL);
+#> 
+#> message('Extracted ', length(questions$title), ' questions');
+#> 
+#> message('Posting questions as tweets');
 #> 
 #> posts <- post_stack_tweets(questions, hashtags = 'rstats',
 #>                            post = FALSE);

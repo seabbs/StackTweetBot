@@ -199,20 +199,34 @@ set this by passing <code>frequency = "hourly"</code> (<code>cronR</code>) or <c
                        <span class='kw'>run</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>schedule</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
                        <span class='kw'>save</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>No directory has been supplied for saving the twitter bot,</span>
 #&gt; <span class='message'>           defaulting to saving to the temporary directory. This directory will not be</span>
-#&gt; <span class='message'>             preserved once the r session has ended.</span></div><div class='output co'>#&gt; <span class='message'>Saving the following code to: /tmp/Rtmp3HSAiG/stack_tweet_bot.R</span></div><div class='output co'>#&gt; <span class='message'>Code: </span>
+#&gt; <span class='message'>             preserved once the r session has ended.</span></div><div class='output co'>#&gt; <span class='message'>Saving the following code to: /tmp/Rtmp97VSQw/stack_tweet_bot.R</span></div><div class='output co'>#&gt; <span class='message'>Code: </span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>library(StackTweetBot);</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>message('Getting Stack Overflow questions at ', Sys.time());</span>
+#&gt; <span class='message'></span>
 #&gt; <span class='message'>questions &lt;- get_stack_questions(extracted_tags = 'ggplot2',</span>
 #&gt; <span class='message'>                                 excluded_tags = NULL,</span>
 #&gt; <span class='message'>                                 time_window = 1440,</span>
 #&gt; <span class='message'>                                 add_process_fn = NULL);</span>
 #&gt; <span class='message'></span>
+#&gt; <span class='message'>message('Extracted ', length(questions$title), ' questions');</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>message('Posting questions as tweets');</span>
+#&gt; <span class='message'></span>
 #&gt; <span class='message'>posts &lt;- post_stack_tweets(questions, hashtags = 'rstats',</span>
-#&gt; <span class='message'>                           post = FALSE);</span></div><div class='output co'>#&gt; <span class='message'>Running bot..</span></div><div class='output co'>#&gt; library(StackTweetBot);
+#&gt; <span class='message'>                           post = FALSE);</span></div><div class='output co'>#&gt; <span class='message'>Running bot..</span></div><div class='output co'>#&gt; <span class='message'>Getting Stack Overflow questions at 2018-03-13 14:42:13</span></div><div class='output co'>#&gt; <span class='message'>Extracted 25 questions</span></div><div class='output co'>#&gt; <span class='message'>Posting questions as tweets</span></div><div class='output co'>#&gt; library(StackTweetBot);
+#&gt; 
+#&gt; message('Getting Stack Overflow questions at ', Sys.time());
+#&gt; 
 #&gt; questions &lt;- get_stack_questions(extracted_tags = 'ggplot2',
 #&gt;                                  excluded_tags = NULL,
 #&gt;                                  time_window = 1440,
 #&gt;                                  add_process_fn = NULL);
+#&gt; 
+#&gt; message('Extracted ', length(questions$title), ' questions');
+#&gt; 
+#&gt; message('Posting questions as tweets');
 #&gt; 
 #&gt; posts &lt;- post_stack_tweets(questions, hashtags = 'rstats',
 #&gt;                            post = FALSE);</div><div class='input'><span class='co'>## Sample bot output</span>
