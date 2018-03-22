@@ -5,7 +5,7 @@
 \title{Get StackOverflow Questions For A List of Tags}
 \usage{
 get_stack_questions(extracted_tags = NULL, excluded_tags = NULL,
-  time_window = 60, add_process_fn = NULL)
+  time_window = 60, add_process_fn = NULL, ...)
 }
 \arguments{
 \item{extracted_tags}{A character vector of tags to extract questions for.}
@@ -22,6 +22,8 @@ frame corresponds the frequency with which your bot is running.}
 \item{add_process_fn}{A function. If additional munging or data extraction is required add
 to a custom function and pass here. This function must except a dataframe as its first arguement
 and return a dataframe. See the examples for details.}
+
+\item{...}{Pass additional arguements to \code{stackr::stack_questions}.}
 }
 \value{
 A list containing the title, creation date, link, and tags for StackOverflow

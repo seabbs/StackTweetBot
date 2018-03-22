@@ -14,6 +14,7 @@
 #' @param add_process_fn A function. If additional munging or data extraction is required add
 #' to a custom function and pass here. This function must except a dataframe as its first arguement
 #' and return a dataframe. See the examples for details.
+#' @param ... Pass additional arguements to \code{stackr::stack_questions}.
 #' @return A list containing the title, creation date, link, and tags for StackOverflow
 #' questions related to your selected tags.
 #' @export
@@ -44,7 +45,8 @@
 get_stack_questions <- function(extracted_tags = NULL,
                                 excluded_tags = NULL,
                                 time_window = 60,
-                                add_process_fn = NULL) {
+                                add_process_fn = NULL,
+                                ...) {
 
 
   if (is.null(extracted_tags)) {
@@ -64,7 +66,7 @@ get_stack_questions <- function(extracted_tags = NULL,
   ## Make extracting stack questions safe
   safe_query <- purrr::safely(stackr::stack_questions)
   query_tag <- function(tag) {
-    query <- safe_query(pagesize = 100, tagged = tag)
+    query <- safe_query(pagesize = 100, tagged = tag, ...)
     return(query)
   }
 

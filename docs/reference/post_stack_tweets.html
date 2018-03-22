@@ -25,14 +25,14 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
 <meta property="og:title" content="Post A Tweet for Each Question — post_stack_tweets" />
 
 <meta property="og:description" content="Format and post StackOverflow questions as tweets, optionally returning them
 as a formatted list. This code is based on the tidyverse tweets bot
 by Jake Thompson." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -55,8 +55,12 @@ by Jake Thompson." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">StackTweetBot</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">StackTweetBot</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -97,6 +101,7 @@ by Jake Thompson." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Post A Tweet for Each Question</h1>
+    
     </div>
 
     
@@ -107,7 +112,7 @@ by <a href='https://www.wjakethompson.com/'>Jake Thompson</a>.</p>
 
     <pre class="usage"><span class='fu'>post_stack_tweets</span>(<span class='kw'>questions</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>hashtags</span> <span class='kw'>=</span> <span class='st'>"rstats"</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -138,76 +143,67 @@ twitter, if <code>FALSE</code> then the tweets are instead returned as a list.</
                                   <span class='kw'>time_window</span> <span class='kw'>=</span> <span class='fl'>60</span>*<span class='fl'>24</span>)
 
 <span class='fu'>post_stack_tweets</span>(<span class='no'>ggplot2_qs</span>, <span class='kw'>hashtags</span> <span class='kw'>=</span> <span class='st'>"rstats"</span>, <span class='kw'>post</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; Cumulative plot in ggplot2 (r,plot,ggplot2,cumsum) #rstats https://stackoverflow.com/questions/49238865/cumulative-plot-in-ggplot2
+#&gt; Dynamically change background color of ggplot2 (r,ggplot2) #rstats https://stackoverflow.com/questions/49408969/dynamically-change-background-color-of-ggplot2
 #&gt; 
 #&gt; [[2]]
-#&gt; Misaligned points in boxplots using ggplot2 (r,ggplot2) #rstats https://stackoverflow.com/questions/49240194/misaligned-points-in-boxplots-using-ggplot2
+#&gt; How to create multiple (6) plots with ggplot and save them to a pdf file? (r,pdf,ggplot2) #rstats https://stackoverflow.com/questions/49412035/how-to-create-multiple-6-plots-with-ggplot-and-save-them-to-a-pdf-file
 #&gt; 
 #&gt; [[3]]
-#&gt; How to increase resolution of ggplots when exporting using officer R (r,ggplot2,officer) #rstats https://stackoverflow.com/questions/49240961/how-to-increase-resolution-of-ggplots-when-exporting-using-officer-r
+#&gt; How do I plot PostGIS geometries using geom_sf? (r,ggplot2,postgis,spatial) #rstats https://stackoverflow.com/questions/49413102/how-do-i-plot-postgis-geometries-using-geom-sf
 #&gt; 
 #&gt; [[4]]
-#&gt; Showing X axis value label on top of the histogram (r,ggplot2) #rstats https://stackoverflow.com/questions/49241460/showing-x-axis-value-label-on-top-of-the-histogram
+#&gt; adding legend to plot with 2 geom points (r,ggplot2) #rstats https://stackoverflow.com/questions/49415013/adding-legend-to-plot-with-2-geom-points
 #&gt; 
 #&gt; [[5]]
-#&gt; unable to start png() device for plot names create with "paste" function (r,plot,ggplot2) #rstats https://stackoverflow.com/questions/49243161/unable-to-start-png-device-for-plot-names-create-with-paste-function
+#&gt; ggplot2: axis.line and panel.border have different width (r,plot,ggplot2) #rstats https://stackoverflow.com/questions/49415556/ggplot2-axis-line-and-panel-border-have-different-width
 #&gt; 
 #&gt; [[6]]
-#&gt; ggplot add horizontal line inside for loop (r,ggplot2) #rstats https://stackoverflow.com/questions/49244049/ggplot-add-horizontal-line-inside-for-loop
+#&gt; geom_text at certain position in a pie chart (r,ggplot2,tidyverse) #rstats https://stackoverflow.com/questions/49416386/geom-text-at-certain-position-in-a-pie-chart
 #&gt; 
 #&gt; [[7]]
-#&gt; R Shiny not plotting some ggplot2 layers (r,ggplot2,shiny,visualization,data-visualization) #rstats https://stackoverflow.com/questions/49244946/r-shiny-not-plotting-some-ggplot2-layers
+#&gt; Connected points in ggplot boxplot (r,ggplot2,data-visualization,boxplot) #rstats https://stackoverflow.com/questions/49417250/connected-points-in-ggplot-boxplot
 #&gt; 
 #&gt; [[8]]
-#&gt; Days for major and hours for minor ticks (r,ggplot2) #rstats https://stackoverflow.com/questions/49246106/days-for-major-and-hours-for-minor-ticks
+#&gt; R: loop through data.table and plot with ggplot2 (r,ggplot2) #rstats https://stackoverflow.com/questions/49417892/r-loop-through-data-table-and-plot-with-ggplot2
 #&gt; 
 #&gt; [[9]]
-#&gt; ggplot2 - add proportion and count values to barchart (r,ggplot2) #rstats https://stackoverflow.com/questions/49246486/ggplot2-add-proportion-and-count-values-to-barchart
+#&gt; multivariate bar chart in R ggplot (r,ggplot2,bar-chart,data-visualization) #rstats https://stackoverflow.com/questions/49418057/multivariate-bar-chart-in-r-ggplot
 #&gt; 
 #&gt; [[10]]
-#&gt; How to draw the background and change the color of each laboratory? (r,ggplot2,tidyverse) #rstats https://stackoverflow.com/questions/49246553/how-to-draw-the-background-and-change-the-color-of-each-laboratory
+#&gt; Error in filter_impl: Evaluation error: Not compatible with requested type (r,ggplot2,shiny,dplyr) #rstats https://stackoverflow.com/questions/49418083/error-in-filter-impl-evaluation-error-not-compatible-with-requested-type
 #&gt; 
 #&gt; [[11]]
-#&gt; Can we change angle of text with geom_label in ggplot2? (r,ggplot2) #rstats https://stackoverflow.com/questions/49246650/can-we-change-angle-of-text-with-geom-label-in-ggplot2
+#&gt; What is the best way to add ratio lines to plot in ggplot2? (r,plot,ggplot2,scatter-plot) #rstats https://stackoverflow.com/questions/49418545/what-is-the-best-way-to-add-ratio-lines-to-plot-in-ggplot2
 #&gt; 
 #&gt; [[12]]
-#&gt; Unexpected Walker alias table output using ggplot2 (r,ggplot2,stacked-chart) #rstats https://stackoverflow.com/questions/49246760/unexpected-walker-alias-table-output-using-ggplot2
+#&gt; Adding Regression Line Equation and R2 on SEPARATE LINES graph (r,ggplot2) #rstats https://stackoverflow.com/questions/49418552/adding-regression-line-equation-and-r2-on-separate-lines-graph
 #&gt; 
 #&gt; [[13]]
-#&gt; Showing a legend on a multiple-Y axis plot in ggplot (r,ggplot2) #rstats https://stackoverflow.com/questions/49247040/showing-a-legend-on-a-multiple-y-axis-plot-in-ggplot
+#&gt; Change order of months scale_x_date ggplot (python,python-2.7,ggplot2,python-ggplot) #rstats https://stackoverflow.com/questions/49418669/change-order-of-months-scale-x-date-ggplot
 #&gt; 
 #&gt; [[14]]
-#&gt; Create multiple 2-column bar plots plotting a particular factor against all factors in a loop (r,ggplot2) #rstats https://stackoverflow.com/questions/49247222/create-multiple-2-column-bar-plots-plotting-a-particular-factor-against-all-fact
+#&gt; ROC Curve in Shiny (r,ggplot2,shiny,roc,proc-r-package) #rstats https://stackoverflow.com/questions/49420225/roc-curve-in-shiny
 #&gt; 
 #&gt; [[15]]
-#&gt; ggplot alpha = 0 not working (r,ggplot2) #rstats https://stackoverflow.com/questions/49247417/ggplot-alpha-0-not-working
+#&gt; Set color parameter in ggplot as optional - Shiny Dashboard (r,ggplot2,shinydashboard) #rstats https://stackoverflow.com/questions/49420853/set-color-parameter-in-ggplot-as-optional-shiny-dashboard
 #&gt; 
 #&gt; [[16]]
-#&gt; Need smoothed line on histogram. Why does geom_density draw two lines? (r,ggplot2,histogram,smoothing,density-plot) #rstats https://stackoverflow.com/questions/49247483/need-smoothed-line-on-histogram-why-does-geom-density-draw-two-lines
+#&gt; gridExtra - when I knit for pdf,i still get the big graphs (r,ggplot2,gridextra) #rstats https://stackoverflow.com/questions/49422380/gridextra-when-i-knit-for-pdf-i-still-get-the-big-graphs
 #&gt; 
 #&gt; [[17]]
-#&gt; How to use multiple columns as the frame of an animation in gganimate package (R)? (r,animation,ggplot2,visualization,gganimate) #rstats https://stackoverflow.com/questions/49247591/how-to-use-multiple-columns-as-the-frame-of-an-animation-in-gganimate-package-r
+#&gt; How to display side by side bar plot as well as stacked bar plot in the same figure in R? (r,ggplot2,bar-chart,visualization,stacked-chart) #rstats https://stackoverflow.com/questions/49423366/how-to-display-side-by-side-bar-plot-as-well-as-stacked-bar-plot-in-the-same-fig
 #&gt; 
 #&gt; [[18]]
-#&gt; Plotting a table from dataframe values using both ggplot2 and gridExtra packages in R (r,ggplot2,table,gridextra) #rstats https://stackoverflow.com/questions/49250257/plotting-a-table-from-dataframe-values-using-both-ggplot2-and-gridextra-packages
+#&gt; what library for Python plotting map should I use on this case scenario? (python,matplotlib,ggplot2,seaborn) #rstats https://stackoverflow.com/questions/49424518/what-library-for-python-plotting-map-should-i-use-on-this-case-scenario
 #&gt; 
 #&gt; [[19]]
-#&gt; Is it possible to save a ggplot in RDS format with a global variable in the ggplot() call? (r,ggplot2) #rstats https://stackoverflow.com/questions/49251921/is-it-possible-to-save-a-ggplot-in-rds-format-with-a-global-variable-in-the-ggpl
+#&gt; How to arrange bars in ggplot? (r,ggplot2,dplyr) #rstats https://stackoverflow.com/questions/49426025/how-to-arrange-bars-in-ggplot
 #&gt; 
 #&gt; [[20]]
-#&gt; Difference in ggplot in RMD and flexdashboard (r,ggplot2,flexdashboard) #rstats https://stackoverflow.com/questions/49255392/difference-in-ggplot-in-rmd-and-flexdashboard
+#&gt; geom_rect alternating colour on discrete scale (r,ggplot2) #rstats https://stackoverflow.com/questions/49428048/geom-rect-alternating-colour-on-discrete-scale
 #&gt; 
 #&gt; [[21]]
-#&gt; Mark in ggplot when the observations go below a certain number (r,ggplot2) #rstats https://stackoverflow.com/questions/49256057/mark-in-ggplot-when-the-observations-go-below-a-certain-number
-#&gt; 
-#&gt; [[22]]
-#&gt; choices combination,order &amp; tree (r,ggplot2) #rstats https://stackoverflow.com/questions/49257258/choices-combination-order-tree
-#&gt; 
-#&gt; [[23]]
-#&gt; what's difference between "method" argument values in geom_smooth() (r,ggplot2,smoothing) #rstats https://stackoverflow.com/questions/49257753/whats-difference-between-method-argument-values-in-geom-smooth
-#&gt; 
-#&gt; [[24]]
-#&gt; ggplot2 is not plotting two groups (ggplot2,tidyverse) #rstats https://stackoverflow.com/questions/49258931/ggplot2-is-not-plotting-two-groups
+#&gt; Mistake "A continuous variable can not be mapped to share" (ggplot2) #rstats https://stackoverflow.com/questions/49429272/mistake-a-continuous-variable-can-not-be-mapped-to-share
 #&gt; </div><div class='input'>
 </div></pre>
   </div>

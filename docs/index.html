@@ -27,8 +27,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">StackTweetBot</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="index.html">StackTweetBot</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
@@ -157,7 +161,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; No directory has been supplied for saving the twitter bot,</span>
 <span class="co">#&gt;            defaulting to saving to the temporary directory. This directory will not be</span>
 <span class="co">#&gt;              preserved once the r session has ended.</span>
-<span class="co">#&gt; Saving the following code to: /tmp/RtmpfdOG88/stack_tweet_bot.R</span>
+<span class="co">#&gt; Saving the following code to: /tmp/RtmpbKS4zQ/stack_tweet_bot.R</span>
 <span class="co">#&gt; Code: </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; library(StackTweetBot);</span>
@@ -176,8 +180,8 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; posts &lt;- post_stack_tweets(questions, hashtags = 'rstats',</span>
 <span class="co">#&gt;                            post = FALSE);</span>
 <span class="co">#&gt; Running bot..</span>
-<span class="co">#&gt; Getting Stack Overflow questions at 2018-03-13 14:42:09</span>
-<span class="co">#&gt; Extracted 2 questions</span>
+<span class="co">#&gt; Getting Stack Overflow questions at 2018-03-22 13:59:48</span>
+<span class="co">#&gt; Extracted 0 questions</span>
 <span class="co">#&gt; Posting questions as tweets</span>
 <span class="co">#&gt; library(StackTweetBot);</span>
 <span class="co">#&gt; </span>
@@ -220,13 +224,28 @@ taskscheduleR<span class="op">::</span><span class="kw">taskscheduler_ls</span>(
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2 class="hasAnchor">
-<a href="#sidebar" class="anchor"></a>License</h2>
-<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE.html">LICENSE</a></p>
+    <div class="links">
+<h2>Links</h2>
+<ul class="list-unstyled">
+<li>Report a bug at <br><a href="NA">NA</a>
+</li>
+</ul>
+</div>
+<div class="license">
+<h2>License</h2>
+<ul class="list-unstyled">
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+</ul>
+</div>
+<div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>Sam Abbott <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
+</div>
+
+      <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a></li>
@@ -234,6 +253,7 @@ taskscheduleR<span class="op">::</span><span class="kw">taskscheduler_ls</span>(
 <li><a href="https://ci.appveyor.com/project/seabbs/stacktweetbot"><img src="https://ci.appveyor.com/api/projects/status/fxe1jxdykm5hvn1m?svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/github/seabbs/StackTweetBot?branch=master"><img src="https://codecov.io/gh/seabbs/StackTweetBot/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
 </ul>
+</div>
 </div>
 
 </div>
