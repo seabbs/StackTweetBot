@@ -13,8 +13,7 @@ Suggests:
     devtools,
     covr,
     testthat,
-    cronR,
-    taskscheduleR
+    cronR
 Imports:
     magrittr,
     stackr,
