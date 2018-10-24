@@ -2,7 +2,7 @@
 Tools to Make a Stack Overflow Twitter Bot
 ==========================================
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://www.tidyverse.org/lifecycle/#stable) [![Travis build status](https://travis-ci.org/seabbs/StackTweetBot.svg?branch=master)](https://travis-ci.org/seabbs/StackTweetBot) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/fxe1jxdykm5hvn1m?svg=true)](https://ci.appveyor.com/project/seabbs/stacktweetbot) [![Coverage status](https://codecov.io/gh/seabbs/StackTweetBot/branch/master/graph/badge.svg)](https://codecov.io/github/seabbs/StackTweetBot?branch=master) [![Open the development environment](https://img.shields.io/badge/open-%20dev-lightgrey.svg)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/seabbs/StackTweetBot/master/docker-compose.yml)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://www.tidyverse.org/lifecycle/#stable) [![Travis build status](https://travis-ci.org/seabbs/StackTweetBot.svg?branch=master)](https://travis-ci.org/seabbs/StackTweetBot) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/fxe1jxdykm5hvn1m?svg=true)](https://ci.appveyor.com/project/seabbs/stacktweetbot) [![Coverage status](https://codecov.io/gh/seabbs/StackTweetBot/branch/master/graph/badge.svg)](https://codecov.io/github/seabbs/StackTweetBot?branch=master)
 
 The aim of this package is to allow for easy creation of Stack Overflow twitter bots. It provides a wrapper around functionality from [`rtweet`](http://rtweet.info/) and [`stackr`](https://github.com/dgrtwo/stackr). It was inspired by the [tidyverse tweets bot](https://github.com/wjakethompson/tidyverse-tweets/blob/master/tidyversetweets.R) by [Jake Thompson](https://www.wjakethompson.com/), from which large amounts of code has been adapted. For a working example of a bot built with this package see [h2o tweets bot](https://twitter.com/h2o_tweets), or [here](https://github.com/seabbs/h2o_tweets) for the code.
 
@@ -106,7 +106,7 @@ set_up_stack_tweet_bot(extracted_tags = "ggplot2",
 #> No directory has been supplied for saving the twitter bot,
 #>            defaulting to saving to the temporary directory. This directory will not be
 #>              preserved once the r session has ended.
-#> Saving the following code to: /tmp/Rtmp6Ri35w/stack_tweet_bot.R
+#> Saving the following code to: /tmp/Rtmp10sfly/stack_tweet_bot.R
 #> Code: 
 #> 
 #> library(StackTweetBot);
@@ -125,7 +125,7 @@ set_up_stack_tweet_bot(extracted_tags = "ggplot2",
 #> posts <- post_stack_tweets(questions, hashtags = 'rstats',
 #>                            post = FALSE);
 #> Running bot..
-#> Getting Stack Overflow questions at 2018-10-24 15:55:31
+#> Getting Stack Overflow questions at 2018-10-24 15:58:10
 #> Extracted 3 questions
 #> Posting questions as tweets
 #> library(StackTweetBot);

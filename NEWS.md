@@ -1,3 +1,14 @@
+# StackTweetBot 0.0.1
+
+## Functionality
+
+## Package
+
+* Updated suggests to work across all platforms.
+* Added play with docker button.
+* Updated site.
+* Added docker-compose.yml to support play with docker.
+
 # StackTweetBot 0.0.0.9000
 
 ## Functionality
