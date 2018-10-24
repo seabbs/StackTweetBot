@@ -2,7 +2,7 @@ title: StackOverflow Twitter Bots
 url: https://samabbott.co.uk/StackTweetBot/
 template:
   params:
-    bootswatch: flatly
+    bootswatch: lumen
 
 navbar:
   type: inverse

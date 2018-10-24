@@ -1,20 +1,18 @@
 Package: StackTweetBot
 Title: Tools to Quickly and Easily Create StackOverflow Twitter Bots
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: person("Sam", "Abbott", email = "contact@samabbott.co.uk", role = c("aut", "cre"))
 Description: Provides reproducible tools so that users can quickly and easily set up twitter bots to post StackOverflow posts.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Suggests:
     usethis,
     devtools,
     covr,
-    testthat,
-    cronR,
-    taskscheduleR
+    testthat
 Imports:
     magrittr,
     stackr,

@@ -12,10 +12,11 @@ knitr::opts_chunk$set(
 
 # Tools to Make a Stack Overflow Twitter Bot
 
-  [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+  [![lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://www.tidyverse.org/lifecycle/#stable)
   [![Travis build status](https://travis-ci.org/seabbs/StackTweetBot.svg?branch=master)](https://travis-ci.org/seabbs/StackTweetBot)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/fxe1jxdykm5hvn1m?svg=true)](https://ci.appveyor.com/project/seabbs/stacktweetbot)
   [![Coverage status](https://codecov.io/gh/seabbs/StackTweetBot/branch/master/graph/badge.svg)](https://codecov.io/github/seabbs/StackTweetBot?branch=master)
+  [![Open the development environment](https://img.shields.io/badge/open- dev-lightgrey.svg)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/seabbs/StackTweetBot/master/docker-compose.yml)
 
 The aim of this package is to allow for easy creation of Stack Overflow twitter bots. It provides a wrapper around functionality from [`rtweet`](http://rtweet.info/) and [`stackr`](https://github.com/dgrtwo/stackr). It was inspired by the [tidyverse tweets bot](https://github.com/wjakethompson/tidyverse-tweets/blob/master/tidyversetweets.R) by [Jake Thompson](https://www.wjakethompson.com/), from which large amounts of code has been adapted. For a working example of a bot built with this package see [h2o tweets bot](https://twitter.com/h2o_tweets), or [here](https://github.com/seabbs/h2o_tweets) for the code.
 
@@ -108,4 +109,4 @@ docker pull seabbs/stacktweetbot
 docker run -d -p 8787:8787 -p 1410:1410 -e USER=StackTweetBot -e PASSWORD=StackTweetBot --name StackTweetBot seabbs/stacktweetbot
 ```
 
-The rstudio client can be accessed on port `8787` at `localhost` (or your machines ip). The default username isStackTweetBot and the default password is StackTweetBot. The docker file comes reloaded with `cronR` and therefore may also be used as a staging environment for your twitter bot.
+The rstudio client can be accessed on port `8787` at `localhost` (or your machines ip). The default username isStackTweetBot and the default password is StackTweetBot. The docker file comes reloaded with `cronR` and therefore may also be used as a staging environment for your twitter bot. 

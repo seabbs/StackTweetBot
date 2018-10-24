@@ -29,7 +29,7 @@
 #'
 #'## Build and run twitter bot
 #' set_up_stack_tweet_bot(extracted_tags = "ggplot2",
-#'                        time_window = 60 * 24,
+#'                        time_window = 60 * 48,
 #'                        run = TRUE, schedule = FALSE,
 #'                        save = TRUE, post = FALSE)
 #' ## Sample bot output

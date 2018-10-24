@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://samabbott.co.uk/StackTweetBot//index.html</loc>
+  </url>
+  <url>
+    <loc>https://samabbott.co.uk/StackTweetBot//reference/add_stack_api.html</loc>
+  </url>
+  <url>
+    <loc>https://samabbott.co.uk/StackTweetBot//reference/add_twitter_api.html</loc>
+  </url>
+  <url>
+    <loc>https://samabbott.co.uk/StackTweetBot//reference/get_stack_questions.html</loc>
+  </url>
+  <url>
+    <loc>https://samabbott.co.uk/StackTweetBot//reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://samabbott.co.uk/StackTweetBot//reference/post_stack_tweets.html</loc>
+  </url>
+  <url>
+    <loc>https://samabbott.co.uk/StackTweetBot//reference/set_up_stack_tweet_bot.html</loc>
+  </url>
+</urlset>
